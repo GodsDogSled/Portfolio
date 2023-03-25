@@ -1,11 +1,20 @@
-import Logo from "./Logo";
+import Logo from "./HeaderElements/Logo";
+import Hamburger from "./HeaderElements/Hambuger";
 
 function Header(){
   
   
   return(
     <>
-     <Logo />
+    <header className="header">
+      <Logo />
+      <div className="right-side-header">
+        <button >Light</button>
+        <Hamburger />
+      </div>
+      
+      
+    </header>
     </>
   )
 }

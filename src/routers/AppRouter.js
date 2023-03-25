@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 import PageHome from "../pages/PageHome";
 import PageProject from "../pages/PageProject";
-
+import Header from "../components/Header";
 function AppRouter() {
 
   //Get Project Data
@@ -32,6 +32,7 @@ function AppRouter() {
   return (
     <BrowserRouter>
       <div className="site-wrapper">
+        <Header />
         <main id="home">
           <Routes>
               <Route path="/" element={<PageHome />} />

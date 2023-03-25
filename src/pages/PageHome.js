@@ -2,13 +2,15 @@ import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux"
 import { appTitle, apiPath_pages } from "../global/globals";
 import  SmallProjectCard  from "../components/SmallProjectCard";
-import { apiPath_projects } from "../global/globals";
+import { apiPath_projects} from "../global/globals";
 
 const PageHome = () => {
 
   // API Variables
   const projectsPath = `${apiPath_projects}`
+  const pagesPath = `${apiPath_pages}`
   const [homePageData, setData] = useState([])
+ 
   const [isHomePageLoaded, setLoadStatus] = useState(false)
 
   const projectsData = useSelector((state) => state.project.projects)
@@ -27,9 +29,10 @@ const PageHome = () => {
   
   useEffect(() => {
     const fetchData = async () => {
-        const response = await fetch(projectsPath)
-        if ( response.ok ) {
-            const data = await response.json()
+        const projectResponse = await fetch(pagesPath)
+        
+        if ( projectResponse.ok) {
+            const data = await projectResponse.json()
             setData(data)
             setLoadStatus(true)
         } else {
@@ -71,6 +74,11 @@ const PageHome = () => {
             />
           )
         })}
+
+        <h2>About</h2>
+        {(isHomePageLoaded)? <p>{homePageData.acf.aboutMe}</p>: <p>Failed to Load</p>}
+        <h2>{console.log(homePageData)}</h2>
+        {(isHomePageLoaded)? <p>{homePageData.acf.email}</p>: <p>Failed to Load</p>}
       </>
       :
       <>

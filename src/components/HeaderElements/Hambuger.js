@@ -6,39 +6,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 
-const NavLinksContainer =  styled.div`
- 
-  
-`;
 
-const LinksWrapper = styled.ul`
-  margin:0;
-  padding:0;
-  display:flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height:10%;
-  width:100%;
-  list-style:none;
-  background-color: #fff;
-  z-index:999;
-  
-  position: fixed;
-  top: 100px;
-  left: 0;
-
-  transition:  1s;
-  
- 
-`;
-
-const LinkItem = styled.li`
- 
- 
- 
-
-  
-`;
 
 
 

@@ -9,12 +9,18 @@ header {
     height: 20px;
   }
 
+  #hamburger-svg {
+    stroke: red;
+  }
+
   .hamburger {
     height: 100%;
     display: flex;
 
     transition: 0.5s;
     transition: width 2s, height 4s;
+
+
 
     .hamburger-container {
       background-color: red;

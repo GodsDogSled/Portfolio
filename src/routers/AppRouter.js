@@ -8,6 +8,7 @@ import { NavLink } from 'react-router-dom'
 import PageHome from "../pages/PageHome";
 import PageProject from "../pages/PageProject";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 function AppRouter() {
 
   //Get Project Data
@@ -39,7 +40,7 @@ function AppRouter() {
               <Route path="/projects/:project_slug" element={<PageProject />} />
           </Routes>
         </main>
-      
+        <Footer />
       </div>
     </BrowserRouter>
   );

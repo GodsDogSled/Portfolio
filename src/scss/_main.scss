@@ -4,14 +4,16 @@ h1 {
   font-size: 4rem;
 
   margin: 0;
-  color: $primaryDark;
+
 }
 
 h1,
 h2,
 h3,
+a,
 p {
   font-family: HelveticaDisplayNow;
+  color: $primaryDark;
 }
 
 body {

@@ -1,10 +1,50 @@
+import { useParams, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useState, useEffect, useRef} from "react";
+import Highlights from "../components/Highlights";
 
 
 const PageProject = () => {
+  const { project_slug } = useParams();
+  const projectsData = useSelector((state) => state.project.projects)
+  const isProjectsDataLoaded = useSelector((state) => state.project.loaded)
+  const [thisProjectData, setThisProjectData] = useState([])
+
+  
+ useEffect(()=>{
+  if(isProjectsDataLoaded){
+    let thisProject; 
+    thisProject = projectsData.find(project => project.slug === project_slug);
+    console.log(thisProject);
+    setThisProjectData(thisProject);
+  }
+ },[isProjectsDataLoaded,projectsData,project_slug])
 
 
   return(
-    <h2>Project</h2>
+  <>
+    <section className={`project-${project_slug}`} >
+   
+      {(isProjectsDataLoaded && thisProjectData.length!==0) ?
+      <>
+        <h1>{thisProjectData.acf.project_title}</h1>
+        <p>{thisProjectData.acf.project_description}</p>
+       
+        <h3>Overview</h3>
+        <p>{thisProjectData.acf.overview}</p>
+        <h3>Tech Used</h3>
+        <p>{thisProjectData.acf.tech_used}</p>
+        <h2>Highlights</h2>
+        <Highlights highlights = { thisProjectData.acf.highlights} />
+       </>
+      :
+      <>
+      <p>Loading...</p>
+      </>  
+      }
+    </section>
+  
+    </>
   );
 }
 

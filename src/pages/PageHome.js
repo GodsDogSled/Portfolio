@@ -17,15 +17,12 @@ const PageHome = () => {
   const isProjectsDataLoaded = useSelector((state) => state.project.loaded)
  
 
-  useEffect(() => {//Creates the Circle of rotating text
-    const text =document.querySelector('.text p') 
-    text.innerHTML = text.innerText.split("").map(
-      (char, i) => `<span style = "transform:rotate(${i*6.4}deg)">${char}</span>`
-    ).join("")
-
-
-    
-  }, [])
+  // useEffect(() => {//Creates the Circle of rotating text
+  //   const text =document.querySelector('.text p') 
+  //   text.innerHTML = text.innerText.split("").map(
+  //     (char, i) => `<span style = "transform:rotate(${i*6.5}deg)">${char}</span>`
+  //   ).join("")
+  // }, [])
   
   useEffect(() => {
     const fetchData = async () => {
@@ -48,17 +45,17 @@ const PageHome = () => {
 
   return(
     <>
+    <main>
     <section className="landing-section">
        
       <div className="threejs">
       </div>
 
-      <div className="circle">
-        <div className ="text">
-          <p >Developer * Designer * Dreamer *</p>
-        </div>
+     
+      <div className="premium-gabe">
+        <h1>Premium <br></br> Gabe</h1>
+        
       </div>
-      <h1>Premium <br></br> Gabe</h1>
       
     </section>
 
@@ -88,7 +85,7 @@ const PageHome = () => {
       
     </section>
    
-    
+    </main>
     </>
     
   )

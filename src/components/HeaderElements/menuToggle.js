@@ -12,7 +12,7 @@ const Path = (props) => (
   <motion.path
     fill="transparent"
     
-    strokeWidth="3"
+    strokeWidth="5"
     {...props}
   />
 );
@@ -21,15 +21,15 @@ const transition = { duration: 0.4 };
 
 export default function MenuToggle({ toggle, isOpen }) {
   return (
-    <Button onClick={toggle}>
-      <svg id="hamburger-svg" width="100" height="70" viewBox="0 0 100 100">
+    <Button className="ham-button" onClick={toggle}>
+      <svg id="hamburger-svg" width="40" height="40" viewBox="0 0 100 100">
         <Path
           
           animate={isOpen ? "open" : "closed"}
           initial={false}
           variants={{
-            closed: { d: "M 25 35 L 75 35", stroke: "red" },
-            open: {  d: "M 65 25 L 65 75",  stroke: "white" },
+            closed: { d: "M 0 25 L 100 25", stroke: "red" },
+            open: {  d: "M 75 0 L 75 100",  stroke: "white" },
           }}
           transition={transition}
         />
@@ -38,8 +38,8 @@ export default function MenuToggle({ toggle, isOpen }) {
           animate={isOpen ? "open" : "closed"}
           initial={false}
           variants={{
-            closed: { d: "M 25 65 L 75 65", stroke: "red" },
-            open: { d:"M 35 25 L 35 75" ,stroke: "white" },
+            closed: { d: "M 0 75 L 100 75", stroke: "red" },
+            open: { d:"M 25 0 L 25 100" ,stroke: "white" },
           }}
           transition={transition}
         />

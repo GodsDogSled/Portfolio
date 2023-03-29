@@ -12,8 +12,6 @@ function Header(){
         <button >Light</button>
         <Hamburger />
       </div>
-      
-      
     </header>
     </>
   )

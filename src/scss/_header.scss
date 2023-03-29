@@ -1,9 +1,13 @@
 @use "var" as *;
 
 header {
+  position: sticky;
+  top: 0;
+  width: 100%;
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  padding: 10px;
+
 
   button {
     height: 20px;
@@ -16,11 +20,13 @@ header {
   .hamburger {
     height: 100%;
     display: flex;
-
+    justify-content: center;
     transition: 0.5s;
     transition: width 2s, height 4s;
 
-
+    .ham-button {
+      height: 40px;
+    }
 
     .hamburger-container {
       background-color: red;
@@ -62,11 +68,16 @@ header {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+
+    button {
+      margin-right: 1.5rem;
+    }
   }
 
 
   .pg-logo {
-    width: 80px;
+    width: 60px;
+    height: fit-content;
     fill: $primaryDark;
 
   }

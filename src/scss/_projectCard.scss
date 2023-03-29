@@ -1,0 +1,33 @@
+@use "var" as *;
+
+.small-project-card {
+  height: fit-content;
+  padding-top: 5rem;
+  padding-left: 0;
+
+  h2 {
+    margin-top: 5rem;
+    margin-bottom: 0;
+    border-bottom: solid 2px $primaryDark;
+  }
+
+  h3 {
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+
+  a {
+    text-decoration: none;
+    padding: 5px 8px 5px 8px;
+    border: solid 1px $primaryDark;
+    border-radius: 15px;
+  }
+
+  .project-link {
+    margin-top: 1rem;
+  }
+}

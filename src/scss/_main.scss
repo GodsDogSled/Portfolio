@@ -1,5 +1,9 @@
 @use "var" as *;
 
+main {
+  margin: 5px;
+}
+
 h1 {
   font-size: 4rem;
 
@@ -17,5 +21,6 @@ p {
 }
 
 body {
+  margin: 0;
   background-color: $primaryLight;
 }

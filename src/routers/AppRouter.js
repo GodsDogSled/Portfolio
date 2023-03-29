@@ -34,7 +34,7 @@ function AppRouter() {
     <BrowserRouter>
       <div className="site-wrapper">
         <Header />
-        <main id="home">
+        <main >
           <Routes>
               <Route path="/" element={<PageHome />} />
               <Route path="/projects/:project_slug" element={<PageProject />} />

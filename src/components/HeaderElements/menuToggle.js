@@ -28,7 +28,7 @@ export default function MenuToggle({ toggle, isOpen }) {
           animate={isOpen ? "open" : "closed"}
           initial={false}
           variants={{
-            closed: { d: "M 0 25 L 100 25", stroke: "red" },
+            closed: { d: "M 0 25 L 100 25", stroke: "#313333" },
             open: {  d: "M 75 0 L 75 100",  stroke: "white" },
           }}
           transition={transition}
@@ -38,7 +38,7 @@ export default function MenuToggle({ toggle, isOpen }) {
           animate={isOpen ? "open" : "closed"}
           initial={false}
           variants={{
-            closed: { d: "M 0 75 L 100 75", stroke: "red" },
+            closed: { d: "M 0 75 L 100 75", stroke: "#313333" },
             open: { d:"M 25 0 L 25 100" ,stroke: "white" },
           }}
           transition={transition}

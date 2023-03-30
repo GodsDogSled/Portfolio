@@ -4,9 +4,11 @@ const CodeBlock = (codeString) =>{
 const code = codeString.codeBlock
 
   return(
-    <SyntaxHighlighter language="javascript" style={tomorrowNightEighties} showLineNumbers = {true} wrapLines = {true}>
+    <>
+    <SyntaxHighlighter language="javascript"  style={tomorrowNightEighties} showLineNumbers = {true} wrapLines = {true}>
       {code}
     </SyntaxHighlighter>
+    </>
   )
 }
 

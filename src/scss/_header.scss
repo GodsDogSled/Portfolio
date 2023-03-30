@@ -7,7 +7,8 @@ header {
   width: 100%;
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 0 5vw;
+  padding-top: 5vw;
 
 
   button {
@@ -30,7 +31,7 @@ header {
     }
 
     .hamburger-container {
-      background-color: red;
+      background-color: #F55555;
       margin: 0;
 
       position: absolute;
@@ -74,7 +75,7 @@ header {
       height: 100%;
       font-family: HelveticaDisplayNow;
       background-color: inherit;
-      margin-right: 1.5rem;
+      margin-right: 23vw;
       padding: 1px 12px 1px 12px;
       border: solid 1px $primaryDark;
       border-radius: 15px;

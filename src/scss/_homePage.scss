@@ -56,3 +56,26 @@
   font-size: 1.2em;
   transform-origin: 0 100px;
 }
+
+@media screen and (min-width:768px) {
+  .landing-section {
+    padding: 0 5vw;
+    display: flex;
+    flex-direction: row-reverse;
+
+    .premium-gabe {
+      height: calc(100vh - 80px);
+      width: 66vw;
+
+      h1 {
+        font-size: 12vw;
+        margin-bottom: 6rem;
+      }
+    }
+
+    .threejs {
+      height: calc(100vh - 80px) !important;
+      width: 40vw !important;
+    }
+  }
+}

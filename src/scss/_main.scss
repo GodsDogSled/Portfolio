@@ -33,4 +33,16 @@ body {
 
 .section-content {
   padding: 1.5rem;
+  padding-top: 0;
+
+}
+
+@media screen and (min-width:768px) {
+  main {
+    margin: 0;
+  }
+
+  section {
+    padding: 0 5vw;
+  }
 }

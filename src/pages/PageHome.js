@@ -57,20 +57,15 @@ const PageHome = () => {
     
     <section className="landing-section">
       <div className="threejs">
-      <Canvas>
-     <Cube />
-      <ambientLight />
-      
-      </Canvas>
-        
+        <Canvas >
+          <Cube />
+          <ambientLight />
+        </Canvas>
       </div>
 
-     
       <div className="premium-gabe">
         <h1>Premium <br></br> Gabe</h1>
-        
       </div>
-      
     </section>
 
     

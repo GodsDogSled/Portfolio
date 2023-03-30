@@ -20,8 +20,8 @@ function Cube(props) {
       onClick={(event) => click(!clicked)}
       onPointerOver={(event) => hover(true)}
       onPointerOut={(event) => hover(false)}>
-      <boxGeometry args={[2, 1, -50]} />
-      <meshStandardMaterial color={hovered ? 'black' : 'red'} />
+      <boxGeometry args={[2, 1.1, -50]} />
+      <meshStandardMaterial color={hovered ? 'black' : '#F55555'} />
     </mesh>
   )
 }

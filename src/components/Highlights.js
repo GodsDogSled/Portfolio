@@ -35,7 +35,7 @@ function Highlights(  highlights ){
 
               case "video_content":
                 return(
-                  <video width="320" height="240" loop autoPlay muted>
+                  <video  loop autoPlay muted>
                     <source src={highlight.upload_a_video} ></source>
                   </video>
                 );
@@ -49,7 +49,11 @@ function Highlights(  highlights ){
                 );
               
               case "image":
-                return(<>image</>);
+                return(
+                  <>
+                  <img src={highlight.image} alt=""/>
+                  </>
+                );
               
               default:
                 return(<h3>None</h3>);

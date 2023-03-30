@@ -6,7 +6,7 @@ import { apiPath_projects} from "../global/globals";
 import { OrbitControls } from "@react-three/drei";
 import { Canvas, useFrame} from '@react-three/fiber';
 import Cube from "../components/Cube";
-import Particles from "../components/Particles";
+
 
 const sizes = {
   width: window.innerWidth,

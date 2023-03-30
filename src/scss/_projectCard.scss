@@ -51,20 +51,3 @@
   }
 
 }
-
-
-@media screen and (min-width:1024px) {
-  .default {
-    display: flex;
-    flex-direction: row;
-
-    .live-links a {
-      flex: 5 1 33vw;
-      border: none;
-
-      a {}
-    }
-  }
-
-
-}

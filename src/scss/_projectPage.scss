@@ -54,6 +54,15 @@
   pre {
     border-radius: 10px;
     width: 100%;
+    font-size: 0.875rem;
+    line-height: 1.375;
+    direction: ltr;
+    text-align: left;
+    white-space: pre-wrap;
+    word-spacing: normal;
+    word-break: normal;
+    tab-size: 4;
+    hyphens: none;
   }
 
   video {
@@ -92,16 +101,10 @@
       top: 0px;
       left: 70%;
 
-
       .live-site {
         padding-top: 334px;
-        padding-left: 40px;
+        padding-left: 5vw;
 
-        span {
-          width: 12rem !important;
-        }
-
-        // font-size: 3rem;
         h3 {
           padding: 0;
           margin: 0;

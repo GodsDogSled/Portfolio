@@ -3,6 +3,7 @@
 header {
   position: sticky;
   top: 0;
+  z-index: 99;
   width: 100%;
   display: flex;
   align-items: center;
@@ -70,7 +71,13 @@ header {
     justify-content: flex-end;
 
     button {
+      height: 100%;
+      font-family: HelveticaDisplayNow;
+      background-color: inherit;
       margin-right: 1.5rem;
+      padding: 1px 12px 1px 12px;
+      border: solid 1px $primaryDark;
+      border-radius: 15px;
     }
   }
 

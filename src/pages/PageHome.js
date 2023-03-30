@@ -3,6 +3,15 @@ import { useSelector } from "react-redux"
 import { appTitle, apiPath_pages } from "../global/globals";
 import  SmallProjectCard  from "../components/SmallProjectCard";
 import { apiPath_projects} from "../global/globals";
+import { OrbitControls } from "@react-three/drei";
+import { Canvas, useFrame} from '@react-three/fiber';
+import Cube from "../components/Cube";
+import Particles from "../components/Particles";
+
+const sizes = {
+  width: window.innerWidth,
+  height: window.innnerHight
+}
 
 const PageHome = () => {
 
@@ -45,10 +54,15 @@ const PageHome = () => {
 
   return(
     <>
-    <main>
+    
     <section className="landing-section">
-       
       <div className="threejs">
+      <Canvas>
+     <Cube />
+      <ambientLight />
+      
+      </Canvas>
+        
       </div>
 
      
@@ -59,23 +73,38 @@ const PageHome = () => {
       
     </section>
 
-    <section className="work">
-      <h2>Work</h2>
+    
+    <main>
+     
       {(isProjectsDataLoaded) ?
       <>
-        {projectsData.map((project)=>{
-          return(
-            <SmallProjectCard
-              key={project.id}
-              project = {project}
-            />
-          )
-        })}
+        <section id='work'>
+          <h2>Work</h2>
+          <div className="section-content">
+            {projectsData.map((project)=>{
+              return(
+                <SmallProjectCard
+                  key={project.id}
+                  project = {project}
+                />
+              )
+            })}
+          </div>
+        </section>
 
-        <h2>About</h2>
-        {(isHomePageLoaded)? <p>{homePageData.acf.aboutMe}</p>: <p>Failed to Load</p>}
-        <h2>{console.log(homePageData)}</h2>
-        {(isHomePageLoaded)? <p>{homePageData.acf.email}</p>: <p>Failed to Load</p>}
+        <section id="about" >
+          <h2>About</h2>
+          <div className="section-content">
+            {(isHomePageLoaded)? <p>{homePageData.acf.aboutMe}</p>: <p>Failed to Load</p>}
+          </div>
+        </section>
+
+        <section id="contact" >
+          <h2>Contact</h2>
+          <div className="section-content">
+            {(isHomePageLoaded)? <p>{homePageData.acf.email}</p>: <p>Failed to Load</p>}
+          </div>
+        </section>
       </>
       :
       <>
@@ -83,7 +112,7 @@ const PageHome = () => {
       </>  
       }
       
-    </section>
+    
    
     </main>
     </>

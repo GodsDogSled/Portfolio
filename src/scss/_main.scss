@@ -2,6 +2,7 @@
 
 main {
   margin: 5px;
+  margin-bottom: 5rem;
 }
 
 h1 {
@@ -20,7 +21,16 @@ p {
   color: $primaryDark;
 }
 
+h2 {
+  border-bottom: solid 2px $primaryDark;
+  margin-bottom: 0;
+}
+
 body {
   margin: 0;
   background-color: $primaryLight;
+}
+
+.section-content {
+  padding: 1.5rem;
 }

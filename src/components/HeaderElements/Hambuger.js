@@ -23,7 +23,7 @@ export default function Hamburger(props){
     {isOpen && <motion.div animate={{right:"0"}} transition={{duration:.00001}} className = "hamburger-container">
         <ul>
           <li><Link onClick={()=> setOpen(false)} to="/">Home</Link></li>
-          <li><Link onClick={()=> setOpen(false)} to="/">Work</Link></li>
+          <li><Link onClick={()=> setOpen(false)} to="#work">Work</Link></li>
           <li><Link onClick={()=> setOpen(false)} to="/">About</Link></li>
           <li><Link onClick={()=> setOpen(false)} to="/">Contact</Link></li>
         </ul>

@@ -23,19 +23,23 @@ const PageProject = () => {
 
   return(
   <>
-    <section className={`project-${project_slug}`} >
+    <section className={`project project-${project_slug}`} >
    
       {(isProjectsDataLoaded && thisProjectData.length!==0) ?
       <>
-        <h1>{thisProjectData.acf.project_title}</h1>
-        <p>{thisProjectData.acf.project_description}</p>
-       
-        <h3>Overview</h3>
-        <p>{thisProjectData.acf.overview}</p>
-        <h3>Tech Used</h3>
-        <p>{thisProjectData.acf.tech_used}</p>
+        <div className="default">
+          <h1>{thisProjectData.acf.project_title}</h1>
+          <p id="sub-heading">{thisProjectData.acf.project_description}</p>
+        
+          <h3>Overview</h3>
+          <p>{thisProjectData.acf.overview}</p>
+          <h3>Tech Used</h3>
+          <p>{thisProjectData.acf.tech_used}</p>
+        </div>
         <h2>Highlights</h2>
-        <Highlights highlights = { thisProjectData.acf.highlights} />
+        <div className="highlights">
+          <Highlights highlights = { thisProjectData.acf.highlights} />
+        </div>
        </>
       :
       <>

@@ -22,7 +22,7 @@ const transition = { duration: 0.4 };
 export default function MenuToggle({ toggle, isOpen }) {
   return (
     <Button className="ham-button" onClick={toggle}>
-      <svg id="hamburger-svg" width="40" height="40" viewBox="0 0 100 100">
+      <motion.svg id="hamburger-svg" width="40" height="40" viewBox="0 0 100 100" whileHover={{ scale: 1.1 }}>
         <Path
           
           animate={isOpen ? "open" : "closed"}
@@ -43,7 +43,7 @@ export default function MenuToggle({ toggle, isOpen }) {
           }}
           transition={transition}
         />
-      </svg>
+      </motion.svg>
     </Button>
   );
 }

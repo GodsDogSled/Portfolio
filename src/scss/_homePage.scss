@@ -41,6 +41,12 @@
   font-family: HelveticaDisplayNow;
 }
 
+#contact {
+  p {
+    cursor: pointer;
+  }
+}
+
 @keyframes rotateText {
   0% {
     transform: rotate(360deg);
@@ -69,12 +75,12 @@
 
       h1 {
         font-size: 12vw;
-        margin-bottom: 6rem;
+        margin-bottom: 2rem;
       }
     }
 
     .threejs {
-      height: calc(100vh - 80px) !important;
+      height: calc(100vh - 100px) !important;
       width: 65vw !important;
     }
   }
@@ -82,11 +88,23 @@
 
 }
 
+
+@media screen and (min-width: 1000px) {
+  .landing-section {
+    .premium-gabe {
+      h1 {
+        font-size: 80px;
+      }
+    }
+  }
+
+}
+
 @media screen and (min-width: 1400px) {
   .landing-section {
     .premium-gabe {
       h1 {
-        font-size: 170px;
+        font-size: 160px;
       }
     }
   }

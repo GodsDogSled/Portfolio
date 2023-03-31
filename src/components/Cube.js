@@ -1,8 +1,8 @@
 
-import { createRoot } from 'react-dom/client'
+
 import React, { useRef, useState } from 'react'
 import { useFrame} from '@react-three/fiber'
-import { motion } from "framer-motion"
+
 
 function Cube(props) {
   
@@ -17,8 +17,9 @@ function Cube(props) {
   return (
     <mesh
       {...props}
+      position={[0, 1, 0]}
       ref={ref}
-      scale={clicked ? 1.5 : 1}
+      scale={ 1.2 }
       onClick={(event) => click(!clicked)}
       onPointerOver={(event) => hover(true)}
       onPointerOut={(event) => hover(false)}>

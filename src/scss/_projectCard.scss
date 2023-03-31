@@ -31,6 +31,15 @@
   .project-link {
     margin-top: 1rem;
   }
+
+  .project-link:hover {
+    background-color: $primaryDark;
+    color: $primaryLight;
+
+    svg {
+      fill: $primaryLight;
+    }
+  }
 }
 
 @media screen and (min-width:768px) {

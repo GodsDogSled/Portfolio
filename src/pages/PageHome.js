@@ -50,7 +50,16 @@ const PageHome = () => {
 }, [projectsPath])
 
 
-  
+  function clipboard(id) {
+    var text = document.getElementById(id).innerHTML;
+    var elem = document.createElement("textarea");
+    document.body.appendChild(elem);
+    elem.value = text;
+    elem.select();
+    document.execCommand("copy");
+    document.body.removeChild(elem);
+    alert("Copied to clipboard")
+  }
 
 
   return(
@@ -104,7 +113,7 @@ const PageHome = () => {
         <section id="contact" >
           <h2>Contact</h2>
           <div className="section-content">
-            {(isHomePageLoaded)? <p>{homePageData.acf.email}</p>: <p>Failed to Load</p>}
+            {(isHomePageLoaded)? <p id={homePageData.acf.email} onClick={()=>{ clipboard(homePageData.acf.email)}} >{homePageData.acf.email}</p>: <p>Failed to Load</p>}
           </div>
         </section>
       </>

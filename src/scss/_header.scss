@@ -86,10 +86,11 @@ header {
 
 
   .pg-logo {
+    position: relative;
     width: 60px;
     height: fit-content;
     fill: $primaryDark;
-
+    z-index: 9999999;
   }
 
 

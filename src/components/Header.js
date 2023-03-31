@@ -2,8 +2,8 @@ import Logo from "./HeaderElements/Logo";
 import Hamburger from "./HeaderElements/Hambuger";
 
 function Header(){
-  
-  
+
+
   return(
     <>
     <header className="header">

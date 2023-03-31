@@ -29,6 +29,10 @@ function AppRouter() {
     fetchData()
     
   }, [projectsPath, dispatch])
+  
+  useEffect(() => {
+    dispatch(setProjectData(null));
+   },[])
 
   return (
     <BrowserRouter>

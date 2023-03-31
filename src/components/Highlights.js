@@ -22,6 +22,7 @@ function Highlights(  highlights ){
      
     {(dataLoaded) ?
       <>
+      {console.log(highlightData.highlights)}
         { highlightData.highlights.map((highlight)=>{
             switch (highlight.acf_fc_layout){
 
@@ -51,7 +52,7 @@ function Highlights(  highlights ){
               case "image":
                 return(
                   <>
-                  <img src={highlight.image} alt=""/>
+                  <img src={highlight.image.url} alt=""/>
                   </>
                 );
               

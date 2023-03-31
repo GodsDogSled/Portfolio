@@ -75,7 +75,20 @@
 
     .threejs {
       height: calc(100vh - 80px) !important;
-      width: 40vw !important;
+      width: 65vw !important;
     }
   }
+
+
+}
+
+@media screen and (min-width: 1400px) {
+  .landing-section {
+    .premium-gabe {
+      h1 {
+        font-size: 170px;
+      }
+    }
+  }
+
 }

@@ -15,6 +15,7 @@ const PageProject = () => {
   if(isProjectsDataLoaded){
     let thisProject; 
     thisProject = projectsData.find(project => project.slug === project_slug);
+    
     setThisProjectData(thisProject);
   }
  },[isProjectsDataLoaded,projectsData,project_slug])
@@ -31,7 +32,7 @@ const PageProject = () => {
             <h1>{thisProjectData.acf.project_title}</h1>
             <p id="sub-heading">{thisProjectData.acf.project_description}</p>
             {console.log(thisProjectData.acf.project_first_image)}
-            <img src={thisProjectData.acf.project_first_image.url} alt="" />
+            <img src={thisProjectData.acf.project_first_image.sizes.large} alt={`${thisProjectData.acf.project_title}`} />
             
             <h3>Overview</h3>
             <p>{thisProjectData.acf.overview}</p>

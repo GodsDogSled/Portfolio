@@ -1,17 +1,19 @@
 
 import { createRoot } from 'react-dom/client'
 import React, { useRef, useState } from 'react'
-import { Canvas, useFrame, OrbitControls } from '@react-three/fiber'
+import { useFrame} from '@react-three/fiber'
+import { motion } from "framer-motion"
 
 function Cube(props) {
-  // This reference gives us direct access to the THREE.Mesh object
+  
   const ref = useRef()
-  // Hold state for hovered and clicked events
+
   const [hovered, hover] = useState(false)
   const [clicked, click] = useState(false)
-  // Subscribe this component to the render-loop, rotate the mesh every frame
-  useFrame((state, delta) => (ref.current.rotation.x += delta))
-  // Return the view, these are regular Threejs elements expressed in JSX
+  const [customDelta, setCustomDelta] = useState(0.003); 
+
+  useFrame((state, delta) => (ref.current.rotation.x += customDelta ))
+  
   return (
     <mesh
       {...props}
@@ -20,8 +22,8 @@ function Cube(props) {
       onClick={(event) => click(!clicked)}
       onPointerOver={(event) => hover(true)}
       onPointerOut={(event) => hover(false)}>
-      <boxGeometry args={[2, 1.1, -50]} />
-      <meshStandardMaterial color={hovered ? 'black' : '#F55555'} />
+      <sphereGeometry args={[2.2, 2,-50]} />
+      <meshStandardMaterial color={hovered ? 'black' : '#F55555'} wireframe = {true} />
     </mesh>
   )
 }

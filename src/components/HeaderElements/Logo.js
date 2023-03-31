@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from "react";
+import { motion } from "framer-motion"
+import { Link } from "react-router-dom";
 
 
 function Logo (){
@@ -43,7 +45,15 @@ function Logo (){
 
   return(
     <>
-    <div className="logo"
+  <Link to = "/">
+    <motion.div className="logo"
+    drag
+    dragConstraints={{
+      top: -1,
+      left: -1,
+      right: 1,
+      bottom: 1,
+    }}
     //   ref={divRef}
     //   onMouseMove={handleMouseMove}
     //   onMouseEnter={handleMouseEnter}
@@ -64,7 +74,8 @@ function Logo (){
         <rect className="cls-1" y="398.77" width="82.07" height="85.84"/>
         </g>
       </svg>
-    </div>
+    </motion.div>
+    </Link>
     </>
   )
   

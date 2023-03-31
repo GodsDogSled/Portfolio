@@ -9,7 +9,7 @@ function Header(){
     <header className="header">
       <Logo />
       <div className="right-side-header">
-        <button >Light</button>
+        {/* <button >Dark</button> */}
         <Hamburger />
       </div>
     </header>

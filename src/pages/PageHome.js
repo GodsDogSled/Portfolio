@@ -3,9 +3,10 @@ import { useSelector } from "react-redux"
 import { appTitle, apiPath_pages } from "../global/globals";
 import  SmallProjectCard  from "../components/SmallProjectCard";
 import { apiPath_projects} from "../global/globals";
-import { OrbitControls } from "@react-three/drei";
+import { Stats, OrbitControls } from '@react-three/drei'
 import { Canvas, useFrame} from '@react-three/fiber';
 import Cube from "../components/Cube";
+import { motion } from "framer-motion"
 
 
 const sizes = {
@@ -18,8 +19,8 @@ const PageHome = () => {
   // API Variables
   const projectsPath = `${apiPath_projects}`
   const pagesPath = `${apiPath_pages}`
+  
   const [homePageData, setData] = useState([])
- 
   const [isHomePageLoaded, setLoadStatus] = useState(false)
 
   const projectsData = useSelector((state) => state.project.projects)
@@ -60,12 +61,17 @@ const PageHome = () => {
         <Canvas >
           <Cube />
           <ambientLight />
+          <OrbitControls target-y={1} enableZoom = {false} />
         </Canvas>
       </div>
 
-      <div className="premium-gabe">
+      <motion.div className="premium-gabe"  ianimate={{
+      scale: [1, 2, 2, 1, 1],
+      rotate: [0, 0, 270, 270, 0],
+      borderRadius: ["20%", "20%", "50%", "50%", "20%"],
+    }}>
         <h1>Premium <br></br> Gabe</h1>
-      </div>
+      </motion.div>
     </section>
 
     
@@ -76,6 +82,7 @@ const PageHome = () => {
         <section id='work'>
           <h2>Work</h2>
           <div className="section-content">
+            {console.log(projectsData)}
             {projectsData.map((project)=>{
               return(
                 <SmallProjectCard

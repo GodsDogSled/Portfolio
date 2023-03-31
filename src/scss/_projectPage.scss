@@ -12,6 +12,11 @@
     font-size: larger;
   }
 
+  img {
+    margin-top: 3rem;
+    border-radius: 10px;
+  }
+
   p {
     margin: 0;
   }
@@ -41,6 +46,10 @@
 
 .highlights {
   margin: 5px;
+
+  h2 {
+    text-align: right;
+  }
 
   h3 {
     margin: 0;
@@ -87,6 +96,7 @@
 
     .left-side {
       width: 66%;
+      max-width: 900px;
     }
 
     .live-links {
@@ -116,6 +126,10 @@
 
   .highlights {
     width: 66%;
+
+    h2 {
+      font-size: 4rem;
+    }
   }
 
   .live-links:hover {

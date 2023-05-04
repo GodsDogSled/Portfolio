@@ -6,7 +6,7 @@ import { apiPath_projects} from "../global/globals";
 import { Stats, OrbitControls } from '@react-three/drei'
 import { Canvas, useFrame} from '@react-three/fiber';
 import Cube from "../components/Cube";
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 
 
 const sizes = {
@@ -49,7 +49,7 @@ const PageHome = () => {
     fetchData()
 }, [projectsPath])
 
-
+//copies email adress to clipboard
   function clipboard(id) {
     var text = document.getElementById(id).innerHTML;
     var elem = document.createElement("textarea");
@@ -73,12 +73,11 @@ const PageHome = () => {
           <OrbitControls target-y={1} enableZoom = {false} />
         </Canvas>
       </div>
-
-      <motion.div className="premium-gabe"  ianimate={{
-      scale: [1, 2, 2, 1, 1],
-      rotate: [0, 0, 270, 270, 0],
-      borderRadius: ["20%", "20%", "50%", "50%", "20%"],
-    }}>
+      
+      <motion.div className="premium-gabe"  
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
         <h1>Premium <br></br> Gabe</h1>
       </motion.div>
     </section>
@@ -91,7 +90,6 @@ const PageHome = () => {
         <section id='work'>
           <h2>Work</h2>
           <div className="section-content">
-            {console.log(projectsData)}
             {projectsData.map((project)=>{
               return(
                 <SmallProjectCard

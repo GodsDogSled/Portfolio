@@ -4,42 +4,11 @@ import { Link } from "react-router-dom";
 
 
 function Logo (){
-  const [isMouseOver, setIsMouseOver] = useState(false);
-  const [originalPosition, setOriginalPosition] = useState({ x: 0, y: 0 });
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  
 
   
-  const divRef = useRef(null);
+ 
 
-  function handleMouseMove(event) {
-    const mouseX = event.clientX;
-    const mouseY = event.clientY;
-
-    if (isMouseOver) {
-      const divX = divRef.current.offsetLeft + (divRef.current.offsetWidth / 2);
-      const divY = divRef.current.offsetTop + (divRef.current.offsetHeight / 2);
-      const deltaX = mouseX - divX;
-      const deltaY = mouseY - divY;
-      const distance = Math.sqrt((deltaX * deltaX) + (deltaY * deltaY));
-      const maxDistance = 300;
-      const movement = Math.min(distance, maxDistance) / maxDistance;
-      const translateX = deltaX * movement;
-      const translateY = deltaY * movement;
-      setPosition({ x: translateX, y: translateY });
-    }
-  }
-
-  function handleMouseEnter() {
-    setIsMouseOver(true);
-    const divX = divRef.current.offsetLeft;
-    const divY = divRef.current.offsetTop;
-    setOriginalPosition({ x: divX, y: divY });
-  }
-
-  function handleMouseLeave() {
-    setIsMouseOver(false);
-    setPosition({ x: 0, y: 0 });
-  }
  
    
 

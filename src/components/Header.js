@@ -8,6 +8,7 @@ function Header(){
     <>
     <header className="header">
       <Logo />
+      
       <div className="right-side-header">
         {/* <button >Dark</button> */}
         <Hamburger />

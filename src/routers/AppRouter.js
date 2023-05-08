@@ -18,7 +18,7 @@ function AppRouter() {
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(projectsPath)
-      if ( response.ok ) {
+      if (response.ok) {
         const data = await response.json()
         dispatch(setProjectData(data));
         dispatch(setLoaded(true));
@@ -27,12 +27,12 @@ function AppRouter() {
       }
     }
     fetchData()
-    
+
   }, [projectsPath, dispatch])
-  
+
   useEffect(() => {
     dispatch(setProjectData(null));
-   },[])
+  }, [])
 
   return (
     <BrowserRouter>
@@ -40,8 +40,8 @@ function AppRouter() {
         <Header />
         <main >
           <Routes>
-              <Route path="/" element={<PageHome />} />
-              <Route path="/projects/:project_slug" element={<PageProject />} />
+            <Route path="/" element={<PageHome />} />
+            <Route path="/projects/:project_slug" element={<PageProject />} />
           </Routes>
         </main>
         <Footer />

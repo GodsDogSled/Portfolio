@@ -4,12 +4,13 @@
 
 
   h1 {
-    padding-top: 4rem;
+    padding-top: 3em;
+    font-size: 6em;
   }
 
   #sub-heading {
     font-style: italic;
-    font-size: larger;
+    font-size: 1em;
   }
 
   img {
@@ -24,6 +25,10 @@
   h3 {
     margin: 0;
     margin-top: 2rem;
+  }
+
+  .project-landing {
+    height: calc(100vh - (60px - 5vw));
   }
 
   .live-links {
@@ -46,6 +51,7 @@
 
 .highlights {
   margin: 5px;
+  max-width: 900px;
 
   h2 {
     text-align: right;
@@ -97,6 +103,27 @@
     .left-side {
       width: 66%;
       max-width: 900px;
+
+      h2 {
+        // margin-top: 4em;
+        font-size: 4.54em;
+      }
+
+      h3 {
+        font-size: 2em;
+        margin-top: 1em;
+      }
+
+      p {
+        font-size: 1em;
+        max-width: 60%;
+      }
+
+      .basic-info {
+        padding: 0;
+
+        gap: 50px;
+      }
     }
 
     .live-links {

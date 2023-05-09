@@ -1,13 +1,38 @@
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import  {tomorrowNightEighties}  from 'react-syntax-highlighter/dist/esm/styles/hljs';
-const CodeBlock = (codeString) =>{
-const code = codeString.codeBlock
+import { tomorrowNightEighties } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { useState } from "react";
 
-  return(
+function CodeBlock({ codeBlock, idNum }) {
+  const code = codeBlock;
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [buttonText, setButtonText] = useState("Expand Code");
+
+  function handleButtonText() {
+    let text = (!isExpanded) ? "Close" : "Expand Code";
+    setButtonText(text);
+  }
+
+  function expandCode() {
+    setIsExpanded(!isExpanded);
+
+    let codeBlock = document.getElementById(`${idNum}`);
+    codeBlock.classList.toggle("expanded");
+    handleButtonText();
+    const target = codeBlock.offsetTop - 250;
+    if (isExpanded) window.scrollTo({ top: target, behavior: 'smooth' })
+  }
+
+
+
+
+  return (
     <>
-    <SyntaxHighlighter language="javascript"  style={tomorrowNightEighties} showLineNumbers = {true} wrapLines = {true}>
-      {code}
-    </SyntaxHighlighter>
+      <div className="code" id={idNum}>
+        <SyntaxHighlighter language="javascript" style={tomorrowNightEighties} showLineNumbers={true} wrapLines={true}>
+          {code}
+        </SyntaxHighlighter>
+        <button onClick={expandCode} className='expand-button'>{buttonText}</button>
+      </div>
     </>
   )
 }

@@ -5,6 +5,9 @@ import { useState, useEffect, useRef } from "react";
 function Highlights(highlights) {
   const [highlightData, setHighlightData] = useState([])
   const [dataLoaded, setDataLoaded] = useState(false)
+
+  let headingCount = 1;
+  let codeBlockCount = 0;
   useEffect(() => {
     if (highlights) {
       setHighlightData(highlights);
@@ -22,41 +25,48 @@ function Highlights(highlights) {
 
       {(dataLoaded) ?
         <>
+
           {highlightData.highlights.map((highlight) => {
+
             switch (highlight.acf_fc_layout) {
 
               case "heading":
+                headingCount++;
                 return (
                   <>
-                    <h3>{highlight.heading}</h3>
+                    <span className="heading-number">0{headingCount}</span>
+
+                    <h2>{highlight.heading}</h2>
                   </>
+
                 )
 
               case "sub_heading":
                 return (
                   <>
-                    <h4>{highlight.sub_heading}</h4>
+                    <h3 className="highlight-content">{highlight.sub_heading}</h3>
                   </>
                 )
 
               case "plain_text":
                 return (
                   <>
-                    <p>{highlight.plain_text}</p>
+                    <p className="highlight-content">{highlight.plain_text}</p>
                   </>
                 )
 
               case "video_content":
                 return (
-                  <video loop autoPlay muted>
+                  <video className="highlight-content" loop autoPlay muted>
                     <source src={highlight.upload_a_video} ></source>
                   </video>
                 );
 
               case "code_snippet":
+                codeBlockCount++;
                 return (
                   <>
-                    <CodeBlock codeBlock={highlight.code} />
+                    <CodeBlock codeBlock={highlight.code} idNum={codeBlockCount} />
                   </>
 
                 );
@@ -64,7 +74,7 @@ function Highlights(highlights) {
               case "image":
                 return (
                   <>
-                    <img src={highlight.image.url} alt="" />
+                    <img className="highlight-content" src={highlight.image.url} alt="" />
                   </>
                 );
 

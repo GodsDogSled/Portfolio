@@ -8,6 +8,10 @@
     font-size: 6em;
   }
 
+  h2 {
+    font-size: 4em;
+  }
+
   #sub-heading {
     font-style: italic;
     font-size: 1em;
@@ -15,17 +19,30 @@
 
   img {
     margin-top: 3rem;
-    border-radius: 10px;
+
   }
 
-  p {
-    margin: 0;
-  }
+
 
   h3 {
+    border-top: solid 1px $primaryDark;
     margin: 0;
-    margin-top: 2rem;
+    margin-top: 4rem;
+    padding-top: 4rem;
   }
+
+  ul {
+    list-style-type: none;
+    max-width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+    padding: 0;
+  }
+
+
+
+
 
   .project-landing {
     height: calc(100vh - (60px - 5vw));
@@ -54,17 +71,40 @@
   max-width: 900px;
 
   h2 {
-    text-align: right;
+
+    margin-top: 0;
   }
+
+  .heading-number {
+    display: block;
+    margin-top: 4em;
+    font-size: 2em;
+    font-family: HelveticaDisplayNow;
+    font-style: italic;
+    color: #F55555;
+  }
+
+
 
   h3 {
     margin: 0;
-    margin-top: 2rem;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: solid 1px $primaryDark;
   }
 
   p {
     margin: 0;
   }
+
+  .code {
+    position: relative;
+    scroll-padding-top: 100px;
+    height: 200px;
+    transition: 1s ease-in;
+  }
+
+
 
   pre {
     border-radius: 10px;
@@ -78,10 +118,22 @@
     word-break: normal;
     tab-size: 4;
     hyphens: none;
+    height: 100%;
+  }
+
+  .expand-button {
+    position: absolute;
+    font-family: HelveticaDisplayNow;
+    bottom: 0;
+  }
+
+  .code.expanded {
+    height: fit-content;
+    transition: 1s ease-in;
   }
 
   video {
-    margin-top: 2rem;
+    margin-top: 1rem;
     width: 100%;
     height: 100%;
   }

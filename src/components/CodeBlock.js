@@ -19,7 +19,7 @@ function CodeBlock({ codeBlock, idNum }) {
     codeBlock.classList.toggle("expanded");
     handleButtonText();
     const target = codeBlock.offsetTop - 250;
-    if (isExpanded) window.scrollTo({ top: target, behavior: 'smooth' })
+    if (isExpanded) window.scrollTo({ top: target })
   }
 
 

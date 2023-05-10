@@ -30,16 +30,72 @@
 
   .project-link {
     margin-top: 1rem;
-  }
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
 
-  .project-link:hover {
-    background-color: $primaryDark;
-    color: $primaryLight;
 
-    svg {
-      fill: $primaryLight;
+    &> :first-child {
+      left: 0;
+      top: 0;
+
+    }
+
+    &> :last-child {
+      right: 0;
+      top: 0;
+
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      background-color: $primaryDark;
+      opacity: 0;
+      width: 10%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      inset: 0;
+      margin: auto;
+      transition: transform 1.3s;
+    }
+
+    &:hover::before {
+      transform: scale(20);
+      opacity: 1;
+
+    }
+
+    &:has(:first-child:hover)::before {
+      margin-left: 0;
+    }
+
+    &:has(:last-child:hover)::before {
+      margin-right: 0;
+    }
+
+    &:hover {
+
+      .link-text,
+      svg {
+        color: $primaryLight;
+        fill: $primaryLight;
+      }
     }
   }
+
+
+
+
+}
+
+.button-animation {
+  position: absolute;
+
+  background-color: transparent;
+  width: 33.333%;
+  height: 100%;
 }
 
 @media screen and (min-width:768px) {

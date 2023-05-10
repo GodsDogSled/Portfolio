@@ -8,6 +8,7 @@ function Highlights(highlights) {
 
   let headingCount = 1;
   let codeBlockCount = 0;
+  let h3Count = 0;
   useEffect(() => {
     if (highlights) {
       setHighlightData(highlights);
@@ -42,9 +43,11 @@ function Highlights(highlights) {
                 )
 
               case "sub_heading":
+                h3Count++;
+                let isEven = (h3Count % 2 === 0) ? "even-heading" : "odd";
                 return (
                   <>
-                    <h3 className="highlight-content">{highlight.sub_heading}</h3>
+                    <h3 className={`highlight-content ${isEven}`}>{highlight.sub_heading}</h3>
                   </>
                 )
 

@@ -27,7 +27,7 @@ function CodeBlock({ codeBlock, idNum }) {
 
   return (
     <>
-      <div className="code" id={idNum}>
+      <div className="code highlight-content " id={idNum}>
         <SyntaxHighlighter language="javascript" style={tomorrowNightEighties} showLineNumbers={true} wrapLines={true}>
           {code}
         </SyntaxHighlighter>

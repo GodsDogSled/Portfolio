@@ -1,28 +1,31 @@
 @use "var" as *;
 
+main {
+  max-width: 2100px;
+  margin: 0 auto;
+}
+
 .default {
-
-
   h1 {
     padding-top: 3em;
     font-size: 6em;
   }
 
+  h2 {
+    margin: 0;
+  }
 
   #sub-heading {
     font-style: italic;
     font-size: 1em;
+    margin-top: .5em;
   }
 
   img {
     margin-top: 3rem;
-
   }
 
-
-
   h3 {
-    // border-top: solid 1px $primaryDark;
     margin: 0;
     margin-top: 4rem;
     padding-top: 4rem;
@@ -31,15 +34,28 @@
 
   ul {
     list-style-type: none;
-    max-width: 80%;
+    max-width: 50%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1em;
     padding: 0;
   }
 
+  .basic-info {
+    padding: 0;
+    gap: 50px;
 
+    .github h3 {
+      margin-bottom: .5em;
+    }
 
+    a {
+      text-decoration: none;
+      padding: 5px 8px 5px 8px;
+      border: solid 1px #313333;
+      border-radius: 15px;
+    }
+  }
 
 
   .project-landing {
@@ -50,13 +66,9 @@
     margin: 6rem 0;
     text-align: center;
 
-
-
     a {
       text-decoration: none;
       font-size: larger;
-
-
     }
 
     border: solid 1px $primaryDark;
@@ -67,24 +79,22 @@
   }
 }
 
+.heading-number {
+  display: block;
+  padding-left: 4px;
+  font-size: 2em;
+  font-family: MigraExtraLight;
+  font-style: italic;
+  color: #F55555;
+}
+
 .highlights {
-  margin: 5px;
-  max-width: 900px;
+  max-width: 1022px;
+  padding: 0;
 
   h2 {
     margin-top: 0;
   }
-
-  .heading-number {
-    display: block;
-    margin-top: 4em;
-    font-size: 2em;
-    font-family: MigraExtraLight;
-    font-style: italic;
-    color: #F55555;
-  }
-
-
 
   h3 {
     margin: 0;
@@ -94,19 +104,21 @@
 
   p {
     margin: 0;
+    margin-bottom: 1em;
   }
 
   .code {
     position: relative;
+    margin-bottom: 20em;
     scroll-padding-top: 100px;
     height: 200px;
     transition: height .5s ease-in-out;
+    width: 100%;
   }
-
-
 
   pre {
     border-radius: 10px;
+    margin-bottom: 5em;
     width: 100%;
     font-size: 0.875rem;
     line-height: 1.375;
@@ -130,8 +142,6 @@
     border-radius: 10px;
     background-color: transparent;
     border: 1px solid $primaryDark;
-
-
   }
 
   .expand-button:hover {
@@ -150,29 +160,39 @@
     width: 100%;
     height: 100%;
   }
-
-
 }
 
 @media screen and (min-width:768px) {
-  video {}
+  .default ul {
+    max-width: 35%;
+  }
 }
 
 @media screen and (min-width:1024px) {
-  .default {
 
+  .default,
+  .highlights {
+    h2 {
+      font-size: clamp(4rem, 8vw, 8rem);
+      line-height: 96px;
+      max-width: 1000px;
+    }
+
+    h3 {
+      padding-top: .2em;
+      max-width: 35%;
+      border-top: solid 1px rgba(0, 0, 0, 0.205);
+    }
+  }
+
+  .default {
     h1 {
-      font-size: 6rem;
+      font-size: 7rem;
     }
 
     .left-side {
       width: 66%;
       max-width: 900px;
-
-      h2 {
-        // margin-top: 4em;
-        font-size: 4.54em;
-      }
 
       h3 {
         font-size: 2em;
@@ -180,14 +200,22 @@
       }
 
       p {
-        font-size: 1em;
-        max-width: 60%;
+        margin-top: 0;
+        margin-bottom: 64px;
+        font-size: 25px;
+        font-weight: lighter;
+        max-width: 70%;
       }
 
-      .basic-info {
-        padding: 0;
+      ul {
+        max-width: 30%;
+        margin-bottom: 4em;
+      }
 
-        gap: 50px;
+      .basic-info-content {
+        margin: 14em 0;
+        margin-top: 4em;
+        padding-left: 5vw;
       }
     }
 
@@ -217,10 +245,22 @@
   }
 
   .highlights {
+    padding: 0;
     width: 66%;
 
-    h2 {
-      font-size: 4rem;
+    h3 {
+      margin-top: 5em;
+      line-height: 25px;
+    }
+
+    .highlight-content {
+      margin-left: 5vw;
+    }
+
+    p {
+      margin: 1.5em 0;
+      font-size: 25px;
+      max-width: 70%;
     }
   }
 

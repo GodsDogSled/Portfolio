@@ -15,6 +15,8 @@
 
   h1 {
     position: absolute;
+    text-transform: uppercase;
+    font-weight: lighter;
     z-index: 10;
     bottom: 0;
     left: 0;
@@ -107,7 +109,8 @@
   .landing-section {
     .premium-gabe {
       h1 {
-        font-size: 160px;
+        font-size: 9.8vw;
+        font-weight: 300;
       }
     }
   }

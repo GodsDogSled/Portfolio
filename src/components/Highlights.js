@@ -35,11 +35,9 @@ function Highlights(highlights) {
                 headingCount++;
                 return (
                   <>
-                    <span className="heading-number">0{headingCount}</span>
-
+                    <span id={`${headingCount}`} className="heading-number">0{headingCount}</span>
                     <h2>{highlight.heading}</h2>
                   </>
-
                 )
 
               case "sub_heading":

@@ -43,10 +43,10 @@ const PageProject = () => {
     h2s.current.forEach((h2) => {
       const rect = h2.getBoundingClientRect();
       let el = document.querySelector(`.link-${h2.id}`);
-
+      console.log(h2.id);
 
       //check to see if the h2 element is in the middle of the page or not. If it is add a class for stlying.
-      if ((rect.bottom <= (window.innerHeight / 2 || document.documentElement.clientHeight / 2) && (rect.bottom >= ))) {
+      if ((rect.bottom <= (window.innerHeight / 2 || document.documentElement.clientHeight / 2) && (rect.bottom >= 0))) {
         el.classList.add("vert-nav-active")
       } else {
         el.classList.remove("vert-nav-active")

@@ -1,14 +1,20 @@
 
 import CodeBlock from "./CodeBlock";
+import React from "react";
 import { useState, useEffect, useRef } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
 
 function Highlights(highlights) {
-  const [highlightData, setHighlightData] = useState([])
-  const [dataLoaded, setDataLoaded] = useState(false)
+  const [highlightData, setHighlightData] = useState([]);
+  const [dataLoaded, setDataLoaded] = useState(false);
+
 
   let headingCount = 1;
   let codeBlockCount = 0;
   let h3Count = 0;
+
   useEffect(() => {
     if (highlights) {
       setHighlightData(highlights);
@@ -19,25 +25,25 @@ function Highlights(highlights) {
   //rests dataloaded state on mount for the functions return value.
   useEffect(() => {
     setDataLoaded(false);
+
   }, [])
+
 
   return (
     <>
-
       {(dataLoaded) ?
-        <>
-
-          {highlightData.highlights.map((highlight) => {
+        <section >
+          {highlightData.highlights.map((highlight, i) => {
 
             switch (highlight.acf_fc_layout) {
 
               case "heading":
                 headingCount++;
                 return (
-                  <>
-                    <span id={`${headingCount}`} className="heading-number">0{headingCount}</span>
-                    <h2>{highlight.heading}</h2>
-                  </>
+                  <motion.div key={i} id={`heading-${headingCount}`} >
+                    <span className="heading-number">0{headingCount}</span>
+                    <motion.h2 id={headingCount} >{highlight.heading}</motion.h2>
+                  </motion.div>
                 )
 
               case "sub_heading":
@@ -45,20 +51,20 @@ function Highlights(highlights) {
                 let isEven = (h3Count % 2 === 0) ? "even-heading" : "odd";
                 return (
                   <>
-                    <h3 className={`highlight-content ${isEven}`}>{highlight.sub_heading}</h3>
+                    <h3 key={i} className={`highlight-content ${isEven}`}>{highlight.sub_heading}</h3>
                   </>
                 )
 
               case "plain_text":
                 return (
                   <>
-                    <p className="highlight-content">{highlight.plain_text}</p>
+                    <p key={i} className="highlight-content">{highlight.plain_text}</p>
                   </>
                 )
 
               case "video_content":
                 return (
-                  <video className="highlight-content" loop autoPlay muted>
+                  <video key={i} className="highlight-content" loop autoPlay muted>
                     <source src={highlight.upload_a_video} ></source>
                   </video>
                 );
@@ -66,8 +72,8 @@ function Highlights(highlights) {
               case "code_snippet":
                 codeBlockCount++;
                 return (
-                  <>
-                    <CodeBlock codeBlock={highlight.code} idNum={codeBlockCount} />
+                  < >
+                    <CodeBlock key={i} codeBlock={highlight.code} idNum={codeBlockCount} />
                   </>
 
                 );
@@ -75,20 +81,19 @@ function Highlights(highlights) {
               case "image":
                 return (
                   <>
-                    <img className="highlight-content" src={highlight.image.url} alt="" />
+                    <img key={i} className="highlight-content" src={highlight.image.url} alt="" />
                   </>
                 );
 
               default:
-                return (<h3>None</h3>);
+                return (<h3 key={i}>None</h3>);
             }
           })
           }
 
-        </>
+        </section>
         :
         <>
-
           <p>Loading...</p>
         </>
       }

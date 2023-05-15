@@ -80,6 +80,10 @@ html {
     margin: 6rem 0;
     text-align: center;
 
+    .vert-nav {
+      display: none;
+    }
+
     a {
       text-decoration: none;
       font-size: larger;
@@ -175,9 +179,8 @@ html {
   }
 }
 
-.vert-nave {
-  display: none;
-}
+
+
 
 @media screen and (min-width:768px) {
   .default ul {
@@ -262,34 +265,48 @@ html {
       margin: 0;
       width: 30%;
       border: none;
-      border-left: solid 1px $primaryDark;
+      // border-left: solid 1px $primaryDark;
       border-radius: 0;
       height: 100vh;
       position: fixed;
       top: 0px;
       left: 70%;
 
+
+
       .vert-nav {
         position: absolute;
-        height: calc(100vh - (40px + 2vw));
+        height: calc(50vh - (40px + 2vw));
         display: block;
         left: 0;
         top: calc(40px + 2vw);
         z-index: 999;
 
+        .vert-nav-active {
+          font-size: 2em;
+        }
+
+        .scroll-line {
+          width: 2px;
+          height: calc(50vh - (40px + 2vw));
+          position: fixed;
+          top: calc(40px + 2vw);
+          background: #F55555;
+          transform-origin: top;
+        }
+
         ul {
-          height: 100%;
+          height: calc(50vh - (40px + 2vw));
           padding-left: 1em;
           margin: 0;
-          padding-bottom: 2em;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
+          display: grid;
+          grid-template-columns: 1fr;
+          align-items: baseline;
+          justify-items: start;
           font-size: 1em;
 
           a {
-            // color: #F55555;
-            color: white;
+            transition: .3s ease-in-out;
             font-family: Migra;
           }
         }

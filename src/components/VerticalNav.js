@@ -29,7 +29,7 @@ function VerticalNav(data) {
     <nav className="vert-nav">
       <motion.div style={{ scaleY: scrollYProgress }} className='scroll-line'></motion.div>
       <ul>
-        <motion.li><a className={`${data.title}`} href={`#${data.title}`}>{data.title}</a></motion.li>
+        <motion.li><a id="project-title-link" className={`vert-nav-active ${data.title}`} href={`#top`}>{data.title}</a></motion.li>
         <motion.li ><a className="link-1" href="#1">01</a></motion.li>
         {data.highlights.map((highlight, i) => {
           if (highlight.acf_fc_layout === "heading") {

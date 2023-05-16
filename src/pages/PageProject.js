@@ -15,9 +15,9 @@ const PageProject = () => {
   const isProjectsDataLoaded = useSelector((state) => state.project.loaded)
   const [thisProjectData, setThisProjectData] = useState(false);
 
-  const h2s = useRef();
+  const sections = useRef();
 
-  setTimeout(function () { h2s.current = document.querySelectorAll('h2') }, 50);
+  setTimeout(function () { sections.current = document.querySelectorAll('.highlight-section') }, 50);
 
   useEffect(() => {
     if (isProjectsDataLoaded) {
@@ -34,15 +34,21 @@ const PageProject = () => {
 
 
   function handleScroll() {//detects when the h2 headings are in the middle of the screen.
-    h2s.current.forEach((h2) => {
-      const rect = h2.getBoundingClientRect();
-      let el = document.querySelector(`.link-${h2.id}`);
+    const title = document.getElementById("project-title-link");
+    if (window.scrollY <= (window.innerHeight * (1 / 5))) { title.classList.add("vert-nav-active"); }
+    else {
+      title.classList.remove("vert-nav-active");
+    }
+    sections.current.forEach((section) => {
 
+      const rect = section.getBoundingClientRect();
+      let el = document.querySelector(`.link-${section.id}`);
+      console.log(window.innerHeight);
       //check to see if the h2 element is in the middle of the page or not. If it is add a class for stlying.
-      if ((rect.bottom <= ((window.innerHeight * 3 / 4) || document.documentElement.clientHeight * 3 / 4) && (rect.bottom >= 0))) {
-        el.classList.add("vert-nav-active")
+      if ((rect.top <= ((window.innerHeight * (3 / 4))) && (rect.bottom >= window.innerHeight * (2 / 5)))) {
+        el.classList.add("vert-nav-active");
       } else {
-        el.classList.remove("vert-nav-active")
+        el.classList.remove("vert-nav-active");
       }
     })
 
@@ -61,8 +67,8 @@ const PageProject = () => {
                   <img src={thisProjectData.acf.project_first_image.sizes.large} alt={`${thisProjectData.acf.project_title}-landingpage`} />
                 </motion.div>
 
-                <section className="basic-info">
-                  <span id="1" className="heading-number">01</span>
+                <section id="1" className="basic-info highlight-section">
+                  <span className="heading-number">01</span>
                   <motion.h2 id="1" initial={{ x: -400, opacity: 0 }} animate={{ x: 0, opacity: 1 }}>Overview</motion.h2>
                   <div className="basic-info-content">
                     <p>{thisProjectData.acf.overview}</p>

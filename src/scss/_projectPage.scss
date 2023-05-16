@@ -284,6 +284,7 @@ html {
 
         .vert-nav-active {
           font-size: 2em;
+          color: $primaryDark;
         }
 
         .scroll-line {
@@ -291,7 +292,7 @@ html {
           height: calc(50vh - (40px + 2vw));
           position: fixed;
           top: calc(40px + 2vw);
-          background: #F55555;
+          background: $secondaryLight;
           transform-origin: top;
         }
 
@@ -306,8 +307,13 @@ html {
           font-size: 1em;
 
           a {
-            transition: .3s ease-in;
+            color: $secondaryLight;
+            transition: .2s ease-out;
             font-family: Migra;
+
+            &:hover {
+              color: red;
+            }
           }
         }
       }

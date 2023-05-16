@@ -121,7 +121,7 @@ function Highlights2(highlights) {
         <>
           {separatedSections.map((section, index) => {
             return (
-              <section key={index}>
+              <section className="highlight-section" id={index + 2} key={index}>
                 {section}
               </section>
             )

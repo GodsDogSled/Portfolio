@@ -17,7 +17,7 @@ const PageProject = () => {
 
   const sections = useRef();
 
-  setTimeout(function () { sections.current = document.querySelectorAll('.highlight-section') }, 50);
+  setTimeout(function () { sections.current = document.querySelectorAll('.highlight-section') }, 100);
 
   useEffect(() => {
     if (isProjectsDataLoaded) {
@@ -43,7 +43,7 @@ const PageProject = () => {
 
       const rect = section.getBoundingClientRect();
       let el = document.querySelector(`.link-${section.id}`);
-      console.log(window.innerHeight);
+
       //check to see if the h2 element is in the middle of the page or not. If it is add a class for stlying.
       if ((rect.top <= ((window.innerHeight * (3 / 4))) && (rect.bottom >= window.innerHeight * (2 / 5)))) {
         el.classList.add("vert-nav-active");

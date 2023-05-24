@@ -80,6 +80,7 @@ html {
     margin: 6rem 0;
     text-align: center;
 
+
     .vert-nav {
       display: none;
     }
@@ -263,6 +264,7 @@ html {
       position: relative;
       padding: 0;
       margin: 0;
+      margin-left: 1em;
       width: 30%;
       border: none;
       border-left: solid 1px $primaryDark;
@@ -328,7 +330,7 @@ html {
 
           li {
             position: relative;
-            padding: 2em 0em;
+            padding: 6em 0em;
           }
 
           a {
@@ -336,13 +338,13 @@ html {
             color: $secondaryLight;
             transition: .2s ease-out;
             font-family: Migra;
-            border: .001em solid $primaryDark;
+            // border: .001em solid $primaryDark;
             border-radius: 50%;
             padding: .5em;
             height: 5px;
             width: 5px;
 
-            align-item &:hover {
+            &:hover {
               background-color: #F55555;
               color: $primaryDark;
 
@@ -352,15 +354,24 @@ html {
       }
 
       .live-site {
-        width: 100%;
-        height: 100vh;
+        width: fit-content;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0 auto;
+        left: 0;
+        right: 0;
         display: flex;
         align-items: center;
         justify-content: center;
+        border: solid 1px $primaryDark;
+        padding: 1.5em;
+        border-radius: 70px;
 
-        span {
-          display: flex;
-          align-items: center;
+        svg {
+          height: 1.5vw;
+          padding-left: 1em;
+          fill: $primaryDark;
         }
 
         p {
@@ -378,6 +389,10 @@ html {
   .highlights {
     padding: 0;
     width: 66%;
+
+    section {
+      padding: 0;
+    }
 
     h3 {
       margin-top: 5em;

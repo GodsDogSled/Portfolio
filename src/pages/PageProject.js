@@ -90,7 +90,11 @@ const PageProject = () => {
 
               <section className="live-links">
                 <VerticalNav highlights={thisProjectData.acf.highlights} title={thisProjectData.acf.project_title} />
-                <a className="live-site" href={`${thisProjectData.acf.live_site_link}`} ><span> <p>Live <br></br> Site</p> <svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="20" height="15" viewBox="0 0 100 85"><path d="M14.727 30 10 34.707 42.942 67.07c3.906 3.902 10.234 3.91 14.141 0l26.25-25.69v11.954H90v-20A3.338 3.338 0 0 0 86.667 30l-20 .003v6.663H78.62L52.37 62.359a3.335 3.335 0 0 1-4.714 0L14.727 30z" /></svg></span></a>
+                <a className="live-site" href={`${thisProjectData.acf.live_site_link}`} >
+                  <p>Live Site</p>
+                  <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 58.24 58.24">
+                    <polygon class="cls-1" points="58.24 0 58.24 31.96 51.9 31.96 51.9 10.83 39.33 23.4 4.49 58.24 0 53.76 34.84 18.92 47.41 6.35 26.28 6.35 26.28 0 58.24 0" />
+                  </svg></a>
               </section>
 
             </div>

@@ -15,7 +15,7 @@ function CodeBlock({ codeBlock, idNum }) {
   function expandCode() {
     setIsExpanded(!isExpanded);
 
-    let codeBlock = document.getElementById(`${idNum}`);
+    let codeBlock = document.getElementById(`code-${idNum}`);
     codeBlock.classList.toggle("expanded");
     handleButtonText();
     const target = codeBlock.offsetTop - 250;
@@ -27,7 +27,7 @@ function CodeBlock({ codeBlock, idNum }) {
 
   return (
     <>
-      <div className="code highlight-content " id={idNum}>
+      <div className="code highlight-content " id={`code-${idNum}`}>
         <SyntaxHighlighter language="javascript" style={tomorrowNightEighties} showLineNumbers={true} wrapLines={true}>
           {code}
         </SyntaxHighlighter>

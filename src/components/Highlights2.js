@@ -80,7 +80,7 @@ function Highlights2(highlights) {
               <CodeBlock key={i} codeBlock={highlight.code} idNum={codeBlockCount} />
             );
             break;
-          case "image":
+          case "image_content":
             elementArray.push(
               <>
                 <img key={i} className="highlight-content" src={highlight.image.url} alt="" />

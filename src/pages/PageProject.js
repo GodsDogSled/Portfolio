@@ -5,6 +5,7 @@ import Highlights from "../components/Highlights";
 import Highlights2 from "../components/Highlights2";
 import VerticalNav from "../components/VerticalNav";
 import { motion, useScroll, useTransform } from 'framer-motion';
+import ResponsiveImage from "../components/ResonsiveImage";
 
 
 
@@ -45,7 +46,7 @@ const PageProject = () => {
       let el = document.querySelector(`.link-${section.id}`);
 
       //check to see if the h2 element is in the middle of the page or not. If it is add a class for stlying.
-      if ((rect.top <= ((window.innerHeight * (3 / 4))) && (rect.bottom >= window.innerHeight * (2 / 5)))) {
+      if ((rect.top <= ((window.innerHeight * (3 / 5))) && (rect.bottom > window.innerHeight * (3 / 5)))) {
         el.classList.add("vert-nav-active");
       } else {
         el.classList.remove("vert-nav-active");
@@ -64,7 +65,8 @@ const PageProject = () => {
                 <motion.div initial={{ x: -400, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ type: 'spring', duration: 1 }} className="project-landing">
                   <h1 id={`${thisProjectData.acf.project_title}`}>{thisProjectData.acf.project_title}</h1>
                   <p id="sub-heading">{thisProjectData.acf.project_description}</p>
-                  <img src={thisProjectData.acf.project_first_image.sizes.large} alt={`${thisProjectData.acf.project_title}-landingpage`} />
+                  {/* <img src={thisProjectData.acf.project_first_image.sizes.large} alt={`${thisProjectData.acf.project_title}-landingpage`} /> */}
+                  <ResponsiveImage imgArray={thisProjectData.acf.project_first_image} />
                 </motion.div>
 
                 <section id="1" className="basic-info highlight-section">

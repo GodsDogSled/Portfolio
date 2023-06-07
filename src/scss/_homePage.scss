@@ -2,7 +2,6 @@
 
 .landing-section {
   height: calc(100vh - 61px);
-
 }
 
 .threejs {
@@ -15,32 +14,79 @@
 
   h1 {
     position: absolute;
-    text-transform: uppercase;
-    font-weight: lighter;
     z-index: 10;
     bottom: 0;
     left: 0;
+    font-size: clamp(2rem, 20vw, 7rem);
+  }
+
+  .arrow {
+    height: 50% !important;
+    width: 50% !important;
+    fill: $secondaryLight;
+    transform: scale(.5);
+    position: absolute;
+
   }
 }
 
-
+text {
+  fill: $secondaryLight;
+  font-family: Migra;
+  font-size: clamp(2rem, 5.5vw, 3rem);
+  animation: rotate 35s linear infinite;
+  transform-origin: 250px 250px;
+}
 
 .circle {
   position: absolute;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 69%;
-  right: 40%;
+  height: fit-content;
+  bottom: -9%;
+  left: 35%;
+
+  svg {
+    max-width: 80vmin;
+    height: clamp(2rem, 50vw, 17rem);
+    width: clamp(2rem, 50vw, 17rem);
+  }
+
 }
 
-.text {
-  width: 100%;
-  height: 100%;
-  transform: translate(-50%, -50%);
-  transition: 0.5s ease-out;
-  font-family: HelveticaDisplayNow;
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.textcircle {
+  transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1);
+  transform-origin: 250px 250px;
+}
+
+#rotated {
+  position: absolute;
+  top: 19%;
+  transform: translateY(-50%);
+  left: 50%;
+  right: 0;
+  transform-origin: 0 4vw;
+}
+
+.circular-text {
+  width: 12em;
+  height: 12em;
+  place-items: center;
+  transform-origin: center;
+  margin-left: 300px;
+
+}
+
+#rotate-text {
+  height: 400px;
+  width: 400px;
+  font-size: 20px;
+  margin: 0 auto;
+
 }
 
 #contact {
@@ -55,8 +101,6 @@
   }
 }
 
-
-
 .text span {
   position: absolute;
   left: 50%;
@@ -64,8 +108,6 @@
   font-size: 1.2em;
   transform-origin: 0 100px;
 }
-
-
 
 @media screen and (min-width:768px) {
   .landing-section {
@@ -80,7 +122,29 @@
 
       h1 {
         font-size: 12vw;
-        margin-bottom: 2rem;
+        margin-bottom: 4rem;
+      }
+
+      text {
+        fill: $secondaryLight;
+        font-family: Migra;
+        font-size: clamp(2rem, 4vw, 4rem);
+        animation: rotate 25s linear infinite;
+        transform-origin: 250px 250px;
+      }
+
+      .circle {
+        position: absolute;
+        height: fit-content;
+        bottom: -2%;
+        left: 35%;
+
+        svg {
+          max-width: 80vmin;
+          height: 35vw;
+          width: 35vw;
+        }
+
       }
     }
 
@@ -98,8 +162,29 @@
   .landing-section {
     .premium-gabe {
       h1 {
-        font-size: 80px;
+        font-size: 12vw;
       }
+
+      text {
+        font-size: clamp(2rem, 5vw, 3rem);
+      }
+
+      .circle {
+        position: absolute;
+        height: fit-content;
+
+        left: 35%;
+
+        svg {
+          height: clamp(2rem, 30vw, 37rem);
+          width: clamp(2rem, 30vw, 37rem);
+        }
+
+      }
+    }
+
+    canvas {
+      width: 847px;
     }
   }
 
@@ -109,8 +194,17 @@
   .landing-section {
     .premium-gabe {
       h1 {
-        font-size: 9.8vw;
-        font-weight: 300;
+        font-size: clamp(2rem, 10vw, 12rem);
+      }
+
+      .circle {
+        bottom: 0;
+        left: 35%;
+      }
+
+      .circle svg {
+        height: clamp(2rem, 25vw, 30rem);
+        width: clamp(2rem, 25vw, 30rem);
       }
     }
   }

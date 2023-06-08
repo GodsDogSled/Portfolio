@@ -111,7 +111,7 @@ function Highlights2(highlights) {
   }, [elementArray])
 
   sortMarkUpData();
-  console.log(separatedSections);
+
 
 
 

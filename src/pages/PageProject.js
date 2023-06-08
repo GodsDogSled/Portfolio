@@ -1,11 +1,13 @@
 import { useParams, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect, useRef } from "react";
 import Highlights from "../components/Highlights";
 import Highlights2 from "../components/Highlights2";
 import VerticalNav from "../components/VerticalNav";
 import { motion, useScroll, useTransform } from 'framer-motion';
 import ResponsiveImage from "../components/ResonsiveImage";
+import Cursor from "../components/CustomCursor";
+import { changeCursor } from "../features/cursorSlice";
 
 
 
@@ -15,6 +17,9 @@ const PageProject = () => {
   const projectsData = useSelector((state) => state.project.projects)
   const isProjectsDataLoaded = useSelector((state) => state.project.loaded)
   const [thisProjectData, setThisProjectData] = useState(false);
+  const cursorType = useSelector((state) => state.cursor.value)
+
+  const dispatch = useDispatch();
 
   const sections = useRef();
 
@@ -57,13 +62,14 @@ const PageProject = () => {
 
   return (
     <>
+      <Cursor cursorType={cursorType} />
       <section className={`project project-${project_slug}`} >
         {(isProjectsDataLoaded && thisProjectData) ?
           <>
             <div className="default">
               <div className="left-side">
                 <motion.div initial={{ x: -400, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ type: 'spring', duration: 1 }} className="project-landing">
-                  <h1 id={`${thisProjectData.acf.project_title}`}>{thisProjectData.acf.project_title}</h1>
+                  <h1 onMouseEnter={changeCursor("heading")} onMouseLeave={changeCursor("default")} id={`${thisProjectData.acf.project_title}`}>{thisProjectData.acf.project_title}</h1>
                   <p id="sub-heading">{thisProjectData.acf.project_description}</p>
                   {/* <img src={thisProjectData.acf.project_first_image.sizes.large} alt={`${thisProjectData.acf.project_title}-landingpage`} /> */}
                   <ResponsiveImage imgArray={thisProjectData.acf.project_first_image} />

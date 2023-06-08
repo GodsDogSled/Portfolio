@@ -1,14 +1,16 @@
 import { useState, useEffect, useRef } from "react";
-import { useSelector } from "react-redux"
-import { appTitle, apiPath_pages, apiPath_projects } from "../global/globals";
+import { useSelector, useDispatch } from "react-redux"
+import { appTitle, apiPath_pages, apiPath_projects, cursorVarient } from "../global/globals";
 import SmallProjectCard from "../components/SmallProjectCard";
 import { OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber';
 import Cube from "../components/Cube";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 
 import Experience from "../components/Experience";
+import Cursor from "../components/CustomCursor";
+import { changeCursor } from "../features/cursorSlice";
 
 
 
@@ -29,6 +31,14 @@ const PageHome = () => {
 
   const projectsData = useSelector((state) => state.project.projects)
   const isProjectsDataLoaded = useSelector((state) => state.project.loaded);
+
+  //framer motion variables for scrolling email adress
+  const { scrollYProgress } = useScroll();
+  const xVar = useTransform(scrollYProgress, [0, 1], [0, -600])
+
+  //customCursor Variable
+  const cursorType = useSelector((state) => state.cursor.value)
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -69,13 +79,26 @@ const PageHome = () => {
     )
   }
 
+  //-------------------------------------Cursor Varient Functions--------------------------------------------
+  const emailEnter = () => {
+    dispatch(changeCursor("email"));
+    const cursor = document.getElementById("cursor");
+    cursor.innerHTML = "<p>COPY</p>";
+
+  }
+
+  const elementLeave = () => {
+    dispatch(changeCursor("default"));
+    const cursor = document.getElementById("cursor");
+    cursor.innerHTML = "";
+  }
 
   return (
     <>
+      <Cursor cursorType={cursorType} />
       <section className="landing-section">
         <div className="threejs">
           <Canvas camera={{ position: [0, 0, 6] }} >
-
             <Cube />
             <ambientLight />
             <OrbitControls target-y={1} enableZoom={false} />
@@ -86,7 +109,6 @@ const PageHome = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-
           <h1>Gabriel <br></br> Kelly</h1>
 
           <div className="circle">
@@ -158,10 +180,10 @@ const PageHome = () => {
               </div>
             </section>
 
-            <section id="contact" >
-
+            <section onMouseEnter={emailEnter} onMouseLeave={elementLeave} id="contact" >
+              <h3 className="mobile-instructions">Tap to copy to clipboard</h3>
               <div className="section-content">
-                {/* {(isHomePageLoaded) ? <p id="email" onClick={() => { clipboard("email") }} >{homePageData.acf.email}{homePageData.acf.email}</p> : <p>Failed to Load</p>} */}
+                {(isHomePageLoaded) ? <div> <p id="email" onClick={() => { clipboard("email") }} >{homePageData.acf.email}  </p> <p id="email" onClick={() => { clipboard("email") }} >{homePageData.acf.email + " "}  </p></div> : <p>Failed to Load</p>}
                 {/* {(isHomePageLoaded) ? <a id="linkedin-link" href={homePageData.acf.linkedin}  >Linked In</a> : <p>Failed to Load</p>} */}
               </div>
             </section>

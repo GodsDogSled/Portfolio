@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { apiPath_projects } from "../global/globals";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux"
 import { setProjectData, setLoaded } from "../features/projectsSlice";
 import { Link } from 'react-router-dom'
@@ -9,11 +9,13 @@ import PageHome from "../pages/PageHome";
 import PageProject from "../pages/PageProject";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+
 function AppRouter() {
 
   //Get Project Data
   const projectsPath = `${apiPath_projects}`
   const dispatch = useDispatch();
+
 
   useEffect(() => {
     const fetchData = async () => {

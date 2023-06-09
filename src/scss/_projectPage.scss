@@ -2,7 +2,7 @@
 
 main {
   max-width: 2100px;
-  margin: 0 auto;
+  margin: 0 5px;
 }
 
 html {
@@ -81,6 +81,27 @@ html {
     margin: 6rem 0;
     text-align: center;
 
+    .live-site {
+      width: fit-content;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 70px;
+
+
+      svg {
+        height: 7vw;
+        padding-left: 1em;
+        fill: $primaryDark;
+      }
+
+      p {
+        font-size: 10vw;
+        margin: 0;
+      }
+
+    }
 
     .vert-nav {
       display: none;
@@ -375,7 +396,7 @@ html {
         border: solid 1px $primaryDark;
         padding: 1.5em;
         border-radius: 70px;
-        transition: .8s ease;
+        transition: s ease;
 
         svg {
           height: 1.5vw;

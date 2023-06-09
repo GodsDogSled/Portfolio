@@ -10,8 +10,6 @@ import { Color } from 'three'
 
 const GabeHead = (mousePos) => {
   const ref = useRef()
-
-
   const [clicked, click] = useState(false)
   const [customDelta, setCustomDelta] = useState(0.003);
   const [hovered, setHovered] = useState(false)
@@ -23,23 +21,14 @@ const GabeHead = (mousePos) => {
     ref.current.material.color.lerp(hovered ? white : black, .5)
   })
 
-  useFrame(({ mouse, viewport }) => {
-
-
-  })
-
 
   const { nodes, materials } = useGLTF('./models/GabeHead.glb')
   return (
     <group dispose={null}>
-
       <mesh geometry={nodes.Scene_05.geometry} material={materials.texture} position={[0.579, -0.419, -0.677]} rotation={[0.131, 0.062, -0.072]} scale={0.039}
-
         ref={ref}
         onPointerOver={() => setHovered(true)}
-        onPointerOut={() => setHovered(false)}
-      >
-
+        onPointerOut={() => setHovered(false)}>
       </mesh>
     </group>
   )

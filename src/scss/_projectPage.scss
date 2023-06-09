@@ -62,6 +62,7 @@ html {
 
     .github {
       a {
+        transition: .3s ease;
         margin-top: 4em;
       }
     }
@@ -325,13 +326,10 @@ html {
 
       .vert-nav {
         position: absolute;
-        // height: calc(50vh - (40px + 2vw));
         display: flex;
         top: 50%;
-        // -ms-transform: translateY(-50%);
         transform: translateY(-50%);
         left: 0;
-
         z-index: 999;
 
         .vert-nav-active {
@@ -413,7 +411,7 @@ html {
         border: solid 1px $primaryDark;
         padding: 1.5em;
         border-radius: 70px;
-        transition: s ease;
+        transition: .5s ease;
 
         svg {
           height: 1.5vw;

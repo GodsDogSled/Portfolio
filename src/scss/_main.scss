@@ -3,9 +3,15 @@
 body {
   cursor: none;
   overflow-x: hidden;
+  background-color: $primaryLight;
+}
+
+a {
+  cursor: none;
 }
 
 #cursor {
+  display: none;
   position: relative;
   background-color: $primaryDark;
   height: 20px;
@@ -27,10 +33,10 @@ body {
     top: 50%;
     width: fit-content;
     transform: translateY(-50%);
-    font-size: 7px;
+    font-size: 4px;
     color: $primaryDark;
     z-index: 20;
-
+    transition: .2s ease-out;
   }
 }
 
@@ -78,6 +84,7 @@ body {
   position: relative;
   height: 80vh;
   width: calc(100% - 10vw);
+  margin-bottom: 5em;
 
   .section-content {
     margin-top: 4rem;
@@ -106,15 +113,15 @@ body {
   width: 110vw;
   height: 20vh;
   margin: 0;
-
   z-index: 1;
   background-color: $primaryDark;
 
   .mobile-instructions {
     position: absolute;
     color: #313333;
-    top: -74%;
-    right: 20%;
+    top: -95%;
+    right: 70%;
+    font-size: 2vw;
   }
 
   .section-content {
@@ -140,13 +147,13 @@ body {
       font-size: 10vw;
       color: $primaryLight;
       transition: all 1s ease;
+      cursor: none;
 
       &:hover {
         -webkit-text-stroke: 2px $primaryLight ;
         color: $primaryDark;
       }
     }
-
 
   }
 
@@ -194,6 +201,14 @@ body {
 
   #contact {
     min-height: 400px;
+
+    .mobile-instructions {
+      position: absolute;
+      color: #313333;
+      top: -39%;
+      right: 70%;
+      font-size: 2vw;
+    }
   }
 }
 
@@ -201,6 +216,11 @@ body {
 @media screen and (min-width:1000px) {
   .mobile-instructions {
     display: none;
+  }
+
+
+  #cursor {
+    display: block;
   }
 
   #about {

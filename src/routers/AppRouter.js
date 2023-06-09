@@ -3,8 +3,6 @@ import { apiPath_projects } from "../global/globals";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux"
 import { setProjectData, setLoaded } from "../features/projectsSlice";
-import { Link } from 'react-router-dom'
-import { NavLink } from 'react-router-dom'
 import PageHome from "../pages/PageHome";
 import PageProject from "../pages/PageProject";
 import Header from "../components/Header";

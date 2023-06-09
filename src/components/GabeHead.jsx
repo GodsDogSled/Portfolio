@@ -15,12 +15,12 @@ const GabeHead = (mousePos) => {
   const [clicked, click] = useState(false)
   const [customDelta, setCustomDelta] = useState(0.003);
   const [hovered, setHovered] = useState(false)
-  const black = useMemo(() => new Color('#313333'), [])
-  const lime = useMemo(() => new Color('#E2E1E1'), [])
+  const black = useMemo(() => new Color('black'), [])
+  const white = useMemo(() => new Color('#E2E1E1'), [])
 
   useFrame((state, delta) => {
     (ref.current.rotation.y += customDelta)
-    ref.current.material.color.lerp(hovered ? black : lime, .5)
+    ref.current.material.color.lerp(hovered ? white : black, .5)
   })
 
   useFrame(({ mouse, viewport }) => {

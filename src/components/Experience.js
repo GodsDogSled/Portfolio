@@ -1,5 +1,5 @@
 import { OrbitControls } from "@react-three/drei"
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import GabeHead from "./GabeHead.jsx"
 
 import { PerspectiveCamera } from '@react-three/drei'
@@ -10,10 +10,18 @@ const Experience = () => {
 
   const { camera } = useThree();
   const ref = useRef()
-
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [hovered, hover] = useState(false)
   const [clicked, click] = useState(false)
   const [customDelta, setCustomDelta] = useState(0.003);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+  }, [screenWidth])
 
   // useFrame((state, delta) => (ref.current.rotation.x += customDelta))
 
@@ -26,7 +34,7 @@ const Experience = () => {
 
   return (
     <>
-      <OrbitControls enableZoom={false} enablePan={true} enableRotate={true}
+      <OrbitControls enableZoom={false} enablePan={screenWidth > 860 ? true : false} enableRotate={screenWidth > 860 ? true : false}
         minPolarAngle={Math.PI / 4}
         maxPolarAngle={Math.PI - Math.PI / 3}
       />

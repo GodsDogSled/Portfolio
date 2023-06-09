@@ -34,7 +34,9 @@ const PageHome = () => {
 
   //framer motion variables for scrolling email adress
   const { scrollYProgress } = useScroll();
-  const xVar = useTransform(scrollYProgress, [0, 1], [0, -600])
+
+  //turns off orbit controls for the mobile view
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
 
   //customCursor Variable
   const cursorType = useSelector((state) => state.cursor.value)
@@ -55,6 +57,16 @@ const PageHome = () => {
     fetchData()
   }, [projectsPath])
 
+
+  //checks if the viewport is in a mobile view
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+  }, [screenWidth])
+
   //copies email adress to clipboard
   function clipboard(id) {
     var text = document.getElementById(id).innerHTML;
@@ -64,7 +76,9 @@ const PageHome = () => {
     elem.select();
     document.execCommand("copy");
     document.body.removeChild(elem);
-    alert("Copied to clipboard")
+    const cursor = document.getElementById("cursor");
+    cursor.firstChild.innerHTML = "COPIED";
+    cursor.firstChild.style.color = "white";
   }
 
   function Light({ brightness, color, pos }) {//lighting for the about section 3d head
@@ -101,7 +115,7 @@ const PageHome = () => {
           <Canvas camera={{ position: [0, 0, 6] }} >
             <Cube />
             <ambientLight />
-            <OrbitControls target-y={1} enableZoom={false} />
+            <OrbitControls target-y={1} enableZoom={false} enablePan={screenWidth > 860 ? true : false} enableRotate={screenWidth > 860 ? true : false} />
           </Canvas>
         </div>
 
@@ -180,10 +194,10 @@ const PageHome = () => {
               </div>
             </section>
 
-            <section onMouseEnter={emailEnter} onMouseLeave={elementLeave} id="contact" >
+            <section onMouseEnter={emailEnter} onMouseLeave={elementLeave} onClick={() => { clipboard("email") }} id="contact" >
               <h3 className="mobile-instructions">Tap to copy to clipboard</h3>
               <div className="section-content">
-                {(isHomePageLoaded) ? <div> <p id="email" onClick={() => { clipboard("email") }} >{homePageData.acf.email}  </p> <p id="email" onClick={() => { clipboard("email") }} >{homePageData.acf.email + " "}  </p></div> : <p>Failed to Load</p>}
+                {(isHomePageLoaded) ? <div> <p id="email"  >{homePageData.acf.email}  </p> <p id="email" >{homePageData.acf.email + " "} </p></div> : <p>Failed to Load</p>}
                 {/* {(isHomePageLoaded) ? <a id="linkedin-link" href={homePageData.acf.linkedin}  >Linked In</a> : <p>Failed to Load</p>} */}
               </div>
             </section>

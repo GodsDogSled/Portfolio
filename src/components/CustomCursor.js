@@ -27,7 +27,7 @@ const Cursor = (props) => {
       mixBlendMode: "difference",
       scale: 6,
       content: "Copy to clipboard",
-      transition: ".5s"
+      transition: ".4s"
     },
   }
 

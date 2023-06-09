@@ -17,6 +17,7 @@ html {
   h1 {
     font-size: 6em;
     line-height: 75px;
+
   }
 
   h2 {
@@ -24,16 +25,16 @@ html {
   }
 
   #sub-heading {
-    font-style: italic;
     font-size: 1em;
     margin-top: .5em;
   }
 
   img {
+    width: fit-content;
     margin: 5% 0;
     max-height: 450px;
-    object-fit: scale-down;
-    width: fit-content;
+
+
   }
 
   h3 {
@@ -72,8 +73,6 @@ html {
       padding: 5px 8px 5px 8px;
       border: solid 1px #313333;
       border-radius: 15px;
-
-
 
       &:hover {
         background-color: #313333;
@@ -141,9 +140,8 @@ html {
 .heading-number {
   display: block;
   padding-left: 4px;
-  font-size: 2em;
-  font-family: MigraExtraLight;
-  font-style: italic;
+  font-size: 2.5em;
+  font-family: Migra;
   color: #F55555;
 }
 
@@ -229,9 +227,6 @@ html {
     max-height: 450px;
   }
 }
-
-
-
 
 @media screen and (min-width:768px) {
   .default ul {
@@ -369,12 +364,12 @@ html {
           grid-template-columns: 1fr;
           align-items: baseline;
           justify-items: start;
-          font-size: .8em;
+          font-size: 1em;
           gap: 0;
 
           li {
             position: relative;
-            padding: 6em 0em;
+            padding: 5em 0em;
           }
 
           a {

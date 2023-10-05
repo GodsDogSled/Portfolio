@@ -1,15 +1,12 @@
 import { OrbitControls } from "@react-three/drei"
-import { useRef, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import GabeHead from "./GabeHead.jsx"
-
-import { PerspectiveCamera } from '@react-three/drei'
-import { useThree, useFrame } from '@react-three/fiber';
+import { useThree } from '@react-three/fiber';
 
 
 const Experience = () => {
 
   const { camera } = useThree();
-  const ref = useRef()
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [hovered, hover] = useState(false)
   const [clicked, click] = useState(false)
@@ -23,12 +20,9 @@ const Experience = () => {
     window.addEventListener('resize', handleResize);
   }, [screenWidth])
 
-  // useFrame((state, delta) => (ref.current.rotation.x += customDelta))
-
-
   // Set the initial camera position and zoom level
   camera.position.set(0, 0, 22);
-  // camera.zoom = 1;
+
 
   camera.updateProjectionMatrix();
 

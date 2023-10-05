@@ -1,7 +1,9 @@
-import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { motion, useAnimate } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
 
 const Cursor = (props) => {
+
+  const CircleRef = useRef();
   //Custom Cursor
   const [mousePos, setMousePos] = useState({
     x: 0,
@@ -15,30 +17,46 @@ const Cursor = (props) => {
 
   const varients = {
     default: {
-      x: mousePos.x - 10,
-      y: mousePos.y - 10,
+      x: mousePos.x,
+      y: mousePos.y,
       backgroundColor: primaryLight,
       mixBlendMode: "difference",
+
     },
     email: {
-      x: mousePos.x - 10,
-      y: mousePos.y - 10,
+      x: mousePos.x - 1,
+      y: mousePos.y - 1,
       backgroundColor: primaryLight,
       mixBlendMode: "difference",
       scale: 6,
       content: "Copy to clipboard",
-      transition: ".4s"
+      // transition: ".4s"
     },
   }
 
   useEffect(() => {
     setCursorVarient(props.cursorType);
+    // const mouseMove = e => {
+    //   setMousePos({
+    //     x: e.clientX,
+    //     y: e.clientY
+    //   })
+    // }
+
     const mouseMove = e => {
-      setMousePos({
-        x: e.clientX,
-        y: e.clientY
-      })
-    }
+      if (!CircleRef.current) return;
+
+      CircleRef.current?.animate(
+        {
+          left: `${e.clientX - 10}px`,
+          top: `${e.clientY - 10}px`,
+        },
+        {
+          duration: 500,
+          fill: "forwards",
+        }
+      );
+    };
     window.addEventListener("mousemove", mouseMove)
 
     return () => {
@@ -50,7 +68,7 @@ const Cursor = (props) => {
     <motion.div id="cursor"
       variants={varients}
       animate={cursorVarient}
-      transition={{ ease: "easeOut", duration: 0 }}
+      ref={CircleRef}
     >
     </motion.div>
   )

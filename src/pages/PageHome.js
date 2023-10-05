@@ -106,14 +106,19 @@ const PageHome = () => {
     const cursor = document.getElementById("cursor");
     cursor.innerHTML = "";
   }
+  let balls = [0];
+
+  let ballValues = balls.map((number, index) => {
+    return <Cube posX={0} posY={0} posZ={0} growth={(Math.random() * .005)} />
+  })
 
   return (
     <>
       <Cursor cursorType={cursorType} />
       <section className="landing-section">
         <div className="threejs">
-          <Canvas camera={{ position: [0, 0, 6] }} >
-            <Cube />
+          <Canvas camera={{ position: [0, 0, 0] }} >
+            {/* {ballValues} */}
             <ambientLight />
             <OrbitControls target-y={1} enableZoom={false} enablePan={screenWidth > 860 ? true : false} enableRotate={screenWidth > 860 ? true : false} />
           </Canvas>
@@ -181,10 +186,7 @@ const PageHome = () => {
                   <Canvas>
                     <Light brightness={600} color={"#2D49F9"} pos={[-20, 5, 7]} />
                     <Light brightness={600} color={"#2D49F9"} pos={[20, 7, 7]} />
-
-                    /<ambientLight />
-                    {/* <Light brightness={50} color={"white"} pos={[0, -7, 7]} /> */}
-
+                    <ambientLight />
                     <Experience />
                   </Canvas>
                 </div>
@@ -196,7 +198,7 @@ const PageHome = () => {
 
             <section onMouseEnter={emailEnter} onMouseLeave={elementLeave} onClick={() => { clipboard("email") }} id="contact" >
               <h3 className="mobile-instructions">Tap to copy to clipboard</h3>
-              <div className="section-content">
+              <div className="section-content " id="email-scroll">
                 {(isHomePageLoaded) ? <div> <p id="email"  >{homePageData.acf.email}  </p> <p id="email" >{homePageData.acf.email + " "} </p></div> : <p>Failed to Load</p>}
                 {/* {(isHomePageLoaded) ? <a id="linkedin-link" href={homePageData.acf.linkedin}  >Linked In</a> : <p>Failed to Load</p>} */}
               </div>

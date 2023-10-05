@@ -2,7 +2,7 @@
 
 main {
   max-width: 2100px;
-  margin: 0 5px;
+  margin: 0 auto;
 }
 
 html {
@@ -32,7 +32,7 @@ html {
   img {
     width: fit-content;
     margin: 5% 0;
-    max-height: 450px;
+    max-height: 40vh;
 
 
   }
@@ -216,7 +216,7 @@ html {
 
   img {
     margin-top: 1rem;
-    max-height: 450px;
+
     width: fit-content;
   }
 
@@ -270,8 +270,8 @@ html {
 
   .default {
     h1 {
-      font-size: clamp(5em, 18vw, 12em);
-      line-height: 155px;
+      font-size: clamp(5em, 18vw, 7.6em);
+      line-height: .9em;
     }
 
     .left-side {
@@ -453,4 +453,20 @@ html {
   .live-site:hover {
     background-color: #F55555;
   }
+}
+
+@media screen and (min-width:1600px) {
+
+  .default {
+
+    h1 {
+      font-size: clamp(5em, 18vw, 12em);
+      line-height: .9em;
+    }
+
+    img {
+      max-height: 40vh;
+    }
+  }
+
 }

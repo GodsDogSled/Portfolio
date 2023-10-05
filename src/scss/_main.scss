@@ -1,9 +1,10 @@
 @use "var" as *;
 
 body {
-  cursor: none;
+  // cursor: none;
   overflow-x: hidden;
   background-color: $primaryLight;
+  cursor: url()
 }
 
 a {
@@ -20,7 +21,6 @@ a {
   position: fixed;
   top: 0;
   left: 0;
-  transition: linear;
   pointer-events: none;
   z-index: 9999999;
 
@@ -41,7 +41,7 @@ a {
 }
 
 main {
-  margin: 5px;
+  margin: 0 auto;
   margin-bottom: 5rem;
 }
 
@@ -78,17 +78,19 @@ body {
   padding-top: 0;
   margin-left: 5vw;
   min-height: 30vh;
+
+  #email-scroll {
+    margin-left: 0px;
+  }
 }
 
 #about {
   position: relative;
   height: 80vh;
-  width: calc(100% - 10vw);
   margin-bottom: 5em;
 
   .section-content {
     margin-top: 4rem;
-    width: 100%;
     height: 50%;
     border: 1px solid black;
   }
@@ -104,6 +106,7 @@ body {
   position: absolute;
   height: 70%;
   width: 100%;
+  z-index: -10;
 }
 
 #contact {
@@ -115,12 +118,20 @@ body {
   margin: 0;
   z-index: 1;
   background-color: $primaryDark;
+  padding: 0;
+
+  &:hover {
+    p {
+      -webkit-text-stroke: 2px $primaryLight !important;
+      color: $primaryDark;
+    }
+  }
 
   .mobile-instructions {
     position: absolute;
     color: #313333;
-    top: -95%;
-    right: 70%;
+    top: -105%;
+    right: 65%;
     font-size: 2vw;
   }
 
@@ -130,10 +141,11 @@ body {
     top: 50%;
     transform: translateY(-50%);
     align-items: center;
+    overflow: hidden;
     justify-content: flex-start;
-    width: 100%;
     white-space: nowrap;
     transition: all .5s ease;
+    margin-left: 0px;
 
     div {
       text-align: center;
@@ -148,11 +160,6 @@ body {
       color: $primaryLight;
       transition: all 1s ease;
       cursor: none;
-
-      &:hover {
-        -webkit-text-stroke: 2px $primaryLight ;
-        color: $primaryDark;
-      }
     }
 
   }
@@ -232,6 +239,7 @@ body {
       }
 
       .three-head {
+        z-index: 200;
         top: 10%;
         max-width: 40%;
         margin-left: 50%;

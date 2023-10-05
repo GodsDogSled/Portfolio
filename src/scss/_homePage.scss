@@ -2,10 +2,20 @@
 
 .landing-section {
   height: calc(100vh - 61px);
+  position: relative;
 }
 
 .threejs {
-  height: 66%;
+  position: absolute;
+  z-index: -1000;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  div {
+    height: 100px;
+  }
 }
 
 .premium-gabe {
@@ -113,8 +123,7 @@ text {
   .landing-section {
     position: relative;
     padding: 0 5vw;
-    display: flex;
-    flex-direction: row-reverse;
+
 
     .premium-gabe {
       height: calc(100vh - 80px);
@@ -149,8 +158,9 @@ text {
     }
 
     .threejs {
-      height: calc(100vh) !important;
-      width: 45vw !important;
+      // z-index: 100;
+      // height: calc(100vh) !important;
+      // width: 45vw !important;
     }
   }
 
@@ -199,7 +209,7 @@ text {
 
       .circle {
         bottom: 0;
-        left: 35%;
+        left: 20%;
       }
 
       .circle svg {

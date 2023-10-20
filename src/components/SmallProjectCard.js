@@ -1,22 +1,59 @@
 import { Link } from "react-router-dom";
-
+import { useSelector, useDispatch } from "react-redux"
+import { changeCursor } from "../features/cursorSlice";
 
 function SmallProjectCard(projectObject) {
+  const dispatch = useDispatch();
+  const projectEnter = () => {
+    dispatch(changeCursor("project"));
+    const cursor = document.getElementById("cursor");
+    cursor.innerHTML = "<p>VIEW</p>";
+  }
+
+  const elementLeave = () => {
+    dispatch(changeCursor("default"));
+    const cursor = document.getElementById("cursor");
+    cursor.innerHTML = "";
+  }
+
+  function imageUpdate(imageSizes, title, work, description) {
+    projectObject.updateImage(
+      imageSizes, title, work, description,
+    );
+  }
+
   return (
     <>
-      <article className="small-project-card">
-        <div className="text-content">
-          <h3>{projectObject.project.acf.project_title}</h3>
-          <p>{projectObject.project.acf.project_description}</p>
-        </div>
+      <article
+        onMouseEnter={projectEnter}
+        onMouseLeave={elementLeave}
+        onMouseOver={() => imageUpdate(
+          projectObject.project.acf.project_first_image,
+          projectObject.project.acf.project_title,
+          "design + development",
+          projectObject.project.acf.project_description,
+        )}
+        className="small-project-card"
+      >
         <Link to={`/projects/${projectObject.project.slug}`} className="project-link">
-          <span className="button-animation"></span>
-          <span className="link-text">View Project</span><span><svg version="1.0" xmlns="http://www.w3.org/2000/svg" width="20" height="15" viewBox="0 0 100 85"><path d="M14.727 30 10 34.707 42.942 67.07c3.906 3.902 10.234 3.91 14.141 0l26.25-25.69v11.954H90v-20A3.338 3.338 0 0 0 86.667 30l-20 .003v6.663H78.62L52.37 62.359a3.335 3.335 0 0 1-4.714 0L14.727 30z" /></svg></span>
-          <span className="button-animation"></span>
+          <div className="text-content">
+            <span className="number">0{projectObject.numb}</span>
+            <div className="arrow-container">
+              <h3>{projectObject.project.acf.project_title}</h3>
+
+              <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171.34 171.34">
+                <rect className="cls-1" x="5.3" width="151.03" height="15" />
+                <rect className="cls-1" x="156.34" width="15" height="15" />
+                <rect className="cls-1" x="88.32" y="83.02" width="151.03" height="15" transform="translate(73.32 254.36) rotate(-90)" />
+                <rect className="cls-1" x="-26.12" y="82.67" width="214.58" height="15" transform="translate(-39.99 83.8) rotate(-45)" />
+                <rect className="cls-1" x="130.39" y="47.16" width="0" height="1.38" />
+              </svg>
+            </div>
+            {/* <p>{projectObject.project.acf.project_description}</p> */}
+          </div>
         </Link>
       </article>
     </>
-
   )
 }
 

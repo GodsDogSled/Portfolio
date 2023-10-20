@@ -1,222 +1,261 @@
 @use "var" as *;
 
 .landing-section {
-  height: calc(100vh - 61px);
+  height: calc(95vh - 5vw);
   position: relative;
-}
-
-.threejs {
-  position: absolute;
-  z-index: -1000;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-
-  div {
-    height: 100px;
-  }
 }
 
 .premium-gabe {
-  height: 33%;
-  position: relative;
-
-  h1 {
-    position: absolute;
-    z-index: 10;
-    bottom: 0;
-    left: 0;
-    font-size: clamp(2rem, 20vw, 7rem);
-  }
-
-  .arrow {
-    height: 50% !important;
-    width: 50% !important;
-    fill: $secondaryLight;
-    transform: scale(.5);
-    position: absolute;
-
-  }
-}
-
-text {
-  fill: $secondaryLight;
-  font-family: Migra;
-  font-size: clamp(2rem, 5.5vw, 3rem);
-  animation: rotate 35s linear infinite;
-  transform-origin: 250px 250px;
-}
-
-.circle {
-  position: absolute;
-  height: fit-content;
-  bottom: -9%;
-  left: 35%;
-
-  svg {
-    max-width: 80vmin;
-    height: clamp(2rem, 50vw, 17rem);
-    width: clamp(2rem, 50vw, 17rem);
-  }
-
-}
-
-@keyframes rotate {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.textcircle {
-  transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1);
-  transform-origin: 250px 250px;
-}
-
-#rotated {
-  position: absolute;
-  top: 19%;
-  transform: translateY(-50%);
-  left: 50%;
-  right: 0;
-  transform-origin: 0 4vw;
-}
-
-.circular-text {
-  width: 12em;
-  height: 12em;
-  place-items: center;
-  transform-origin: center;
-  margin-left: 300px;
-
-}
-
-#rotate-text {
-  height: 400px;
-  width: 400px;
-  font-size: 20px;
+  width: 100%;
+  height: 90%;
+  padding-top: clamp(50px, 20vw, 80px);
+  max-width: 560px;
   margin: 0 auto;
 
-}
-
-#contact {
-  p {
-    cursor: pointer;
+  h1 {
+    font-size: clamp(2rem, 15vw, 5rem);
+    font-family: Migra !important;
+    text-transform: uppercase;
+    color: $primaryDark;
+    line-height: .8;
   }
-}
 
-@keyframes rotateText {
-  0% {
-    transform: rotate(360deg);
+  .threejs {
+    border: solid 1px $primaryDark;
+    z-index: -1000;
+    height: 40%;
+    width: 100%;
+    border-radius: 0 0px 0px 50px;
+
+    img {
+      object-fit: cover;
+      height: 90%;
+      width: 100%;
+    }
   }
-}
 
-.text span {
-  position: absolute;
-  left: 50%;
-  right: 50%;
-  font-size: 1.2em;
-  transform-origin: 0 100px;
-}
+  .landing-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50%;
+    padding-top: clamp(50px, 20vw, 50px);
 
-@media screen and (min-width:768px) {
-  .landing-section {
-    position: relative;
-    padding: 0 5vw;
+    .title-section {
+      .gabriel {
+        display: flex;
+        gap: 2em;
+        padding-bottom: 1em;
 
-
-    .premium-gabe {
-      height: calc(100vh - 80px);
-      width: 66vw;
-
-      h1 {
-        font-size: 12vw;
-        margin-bottom: 4rem;
+        .red-line {
+          width: 50%;
+          height: 1px;
+          background-color: $myRed;
+          align-self: center;
+        }
       }
 
-      text {
-        fill: $secondaryLight;
-        font-family: Migra;
-        font-size: clamp(2rem, 4vw, 4rem);
-        animation: rotate 25s linear infinite;
-        transform-origin: 250px 250px;
-      }
-
-      .circle {
-        position: absolute;
+      .kelly {
+        display: flex;
         height: fit-content;
-        bottom: -2%;
-        left: 35%;
+        margin-top: 1em;
 
-        svg {
-          max-width: 80vmin;
-          height: 35vw;
-          width: 35vw;
+        #kelly {
+          box-sizing: border-box;
         }
 
+        .icon-container {
+          border-radius: 100px;
+          height: clamp(2em, 10vw, 60px);
+          width: 100%;
+          margin-left: 2rem;
+          border: solid 1px $myRed;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+
+          svg {
+            height: 65%;
+            width: 15%;
+            fill: $primaryOffLight;
+            transition: ease-out .3s;
+
+            &:nth-child(1) {
+              transform: rotate(20deg) translateY(.3em);
+
+              &:hover {
+                transform: translateY(.4em) translateX(.5em) rotate(40deg);
+              }
+            }
+
+            &:nth-child(2) {
+              transition: ease-in-out 1.4s;
+              fill: $primaryOffLight;
+
+              &:hover {
+                transform: scaleX(-1) scale(1.2);
+
+              }
+            }
+
+            &:nth-child(3) {
+              transform: scaleX(-1) rotate(20deg) translateY(.3em);
+
+              &:hover {
+                transform: translateY(.8em) scaleX(-1) rotate(20deg);
+                fill: $myRed;
+              }
+            }
+          }
+        }
       }
+    }
+
+    .sub-text {
+      display: flex;
+      justify-content: space-between;
+      text-transform: uppercase;
+      font-size: clamp(1rem, 3vw, 1.5rem);
+    }
+  }
+}
+
+
+@media screen and (min-width:768px) {}
+
+@media screen and (min-width: 1000px) {
+
+  .landing-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .premium-gabe {
+    max-width: 1400px;
+    display: flex;
+    gap: 4em;
+    height: 24vw;
+    padding: 0;
+
+
+    h1 {
+      font-size: clamp(2rem, 8vw, 5rem);
     }
 
     .threejs {
-      // z-index: 100;
-      // height: calc(100vh) !important;
-      // width: 45vw !important;
+      width: 50%;
+      height: 100%;
+    }
+
+    .landing-text {
+      width: 60%;
+      height: 100%;
+      padding: 0;
+      justify-content: space-between;
+
+      .title-section {
+        .kelly {
+          margin: 0;
+
+          .icon-container {
+            height: clamp(2em, 5vw, 6.9rem);
+          }
+        }
+      }
+    }
+
+    .sub-text {
+      position: relative;
+
+      svg {
+        position: absolute;
+        height: 290%;
+        top: -24px;
+        left: 80px;
+        fill: $myRed;
+        z-index: -10;
+        transition: .5s;
+        opacity: 0;
+
+      }
+
+      p {
+        margin: 0;
+        font-size: clamp(1rem, 1.4vw, 2rem);
+        transition: 1s;
+        position: relative;
+
+        &:hover {
+          transform: rotate(-10deg);
+        }
+
+
+
+        // &:hover~svg {
+        //   // font-family: Migra;
+        //   // font-size: clamp(1rem, 1.7vw, 3rem);
+        //   opacity: 1;
+        // }
+      }
     }
   }
 
-
 }
 
-
-@media screen and (min-width: 1000px) {
-  .landing-section {
-    .premium-gabe {
-      h1 {
-        font-size: 12vw;
-      }
-
-      text {
-        font-size: clamp(2rem, 5vw, 3rem);
-      }
-
-      .circle {
-        position: absolute;
-        height: fit-content;
-
-        left: 35%;
-
-        svg {
-          height: clamp(2rem, 30vw, 37rem);
-          width: clamp(2rem, 30vw, 37rem);
-        }
-
-      }
-    }
-
-    canvas {
-      width: 847px;
+@media screen and (min-width: 1100px) {
+  .premium-gabe {
+    h1 {
+      font-size: clamp(2rem, 8vw, 6rem);
     }
   }
 
 }
 
 @media screen and (min-width: 1400px) {
-  .landing-section {
-    .premium-gabe {
-      h1 {
-        font-size: clamp(2rem, 10vw, 12rem);
-      }
+  .premium-gabe {
+    h1 {
+      font-size: clamp(2rem, 9vw, 7rem);
+    }
 
-      .circle {
-        bottom: 0;
-        left: 20%;
-      }
-
-      .circle svg {
-        height: clamp(2rem, 25vw, 30rem);
-        width: clamp(2rem, 25vw, 30rem);
-      }
+    .threejs {
+      border-radius: 0 0px 0px 110px;
     }
   }
 
+}
+
+@media screen and (min-width: 1900px) {
+  .premium-gabe {
+    gap: 6em;
+    max-width: 2000px;
+    height: 21vw;
+
+    h1 {
+      font-size: clamp(2rem, 10vw, 10rem);
+    }
+
+    .threejs {
+      border-radius: 0 0px 0px 120px;
+    }
+
+    .title-section {
+      .gabriel {
+        gap: 2.5em !important;
+
+
+
+        .red-line {
+          height: .1em !important;
+          border-radius: 80px;
+        }
+      }
+    }
+
+    .kelly {
+      .icon-container {
+        border: solid .1em $primaryDark !important;
+      }
+    }
+  }
 }

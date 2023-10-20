@@ -1,0 +1,41 @@
+@use "var" as *;
+
+
+#about {
+  position: relative;
+
+  .title {
+    display: flex;
+  }
+
+  h2 {
+    font-weight: 1000;
+    margin: 0;
+    font-size: 8em;
+    text-transform: uppercase;
+    font-family: Migra;
+    color: $primaryLight;
+    -webkit-text-stroke: 2px $primaryDark;
+    line-height: 107px;
+    width: 270px;
+  }
+
+  h3 {
+    padding: 0;
+    margin: 0;
+    text-transform: uppercase;
+    font-weight: 100;
+  }
+
+  .black-line {
+    height: 1px;
+    width: 100%;
+    background-color: $primaryDark;
+  }
+
+  .three-head {
+    height: 60vh;
+    width: 100%;
+    z-index: -10;
+  }
+}

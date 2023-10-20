@@ -1,7 +1,7 @@
 
 
-function ResponsiveImage({ imgArray }) {
-  console.log(imgArray.sizes.large);
+function ResponsiveImage({ imgArray, id }) {
+  // console.log(imgArray.sizes.large);
 
   function configureImage(imgArray) {
     let img = `<img src="${imgArray.url}" 
@@ -16,12 +16,11 @@ function ResponsiveImage({ imgArray }) {
   }
 
   return (
-
     <>
-
       <img
         src={`${imgArray.sizes.thumbnail}`}
         alt={`${imgArray.title}`}
+        id={id}
         srcSet={`${imgArray.url} ${imgArray.width}w,
         ${imgArray.sizes.large} 1024w,
         ${imgArray.sizes.medium_large} 768w,

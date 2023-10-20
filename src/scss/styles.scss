@@ -1,3 +1,5 @@
+@use "var" as *;
+
 @use "normalize/normalize";
 @use "footer";
 @use "header";
@@ -9,3 +11,4 @@
 @use "workSection";
 @use "projectPage";
 @use "fonts";
+@use "whoSection";

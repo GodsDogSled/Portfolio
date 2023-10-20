@@ -2,9 +2,122 @@
 
 #work {
   h2 {
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    font-size: clamp(2rem, 8vw, 3rem);
+    font-weight: lighter;
 
-    margin-bottom: 0;
-    margin-top: 7rem;
+    span {
+      font-weight: 1000;
+      font-size: clamp(4rem, 15vw, 7rem);
+      font-family: Migra;
+      color: $primaryLight;
+      -webkit-text-stroke: 2px $primaryDark;
+    }
   }
+
+  p {
+    font-size: 1.1em;
+    width: 85%;
+  }
+
+  .more-projects {
+    margin-top: 4em;
+    display: flex;
+    align-items: center;
+
+    p {
+      display: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    svg {
+      height: .5em;
+      margin-right: .5em;
+      fill: $primaryDark;
+    }
+  }
+
+  .project-image-container {
+    display: none;
+  }
+
+  .section-content {}
 }
 
+@media screen and (min-width:1200px) {
+  #work {
+
+    .section-content {
+      display: flex;
+      gap: 6em;
+      height: fit-content;
+      min-height: 10vh;
+    }
+
+    .small-projects-container {
+      width: 50%;
+      height: 100%;
+    }
+
+    .more-projects {}
+
+    .project-image-container {
+      position: relative;
+      height: 25em;
+      display: block;
+      width: 50%;
+      border: solid 1px $primaryDark;
+      margin: 2em 0 0em 0em;
+      border-radius: 0 0px 0px 50px;
+      justify-content: space-between;
+      text-transform: uppercase;
+      // overflow: hidden;
+
+      .all-images-container {
+        img {
+          position: absolute;
+          top: 0;
+          height: 21.4em;
+          width: 100%;
+          object-fit: cover;
+          transition: .4s ease-in;
+        }
+      }
+
+      .project-title {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        border-top: 1px solid $primaryDark;
+        text-align: right;
+        padding: 0em 1em 0em 2em;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+
+        p {
+          text-align: left;
+        }
+
+        span {
+          font-size: .7em;
+          align-self: center;
+          font-family: HelveticaDisplayNow;
+        }
+      }
+
+
+    }
+
+    #work-done {
+      position: absolute;
+      bottom: -3em !important;
+      font-size: .6em;
+    }
+  }
+}

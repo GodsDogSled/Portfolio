@@ -11,6 +11,8 @@ const Cursor = (props) => {
   })
 
   const primaryLight = "#E2E1E1"
+  const primaryDark = "#515454"
+  const myRed = "#FF7979"
 
 
   const [cursorVarient, setCursorVarient] = useState("default")
@@ -30,7 +32,17 @@ const Cursor = (props) => {
       mixBlendMode: "difference",
       scale: 6,
       content: "Copy to clipboard",
-      // transition: ".4s"
+
+    },
+    project: {
+      x: mousePos.x - 1,
+      y: mousePos.y - 1,
+      backgroundColor: myRed,
+      mixBlendMode: "normal",
+      scale: 4,
+      content: "View",
+
+
     },
   }
 

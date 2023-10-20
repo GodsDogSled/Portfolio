@@ -1,16 +1,22 @@
 import { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { appTitle, apiPath_pages, apiPath_projects, cursorVarient } from "../global/globals";
-import SmallProjectCard from "../components/SmallProjectCard";
+import WorkSection from "../components/workSection";
 import { OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber';
 import Cube from "../components/Cube";
+import { AnimeStar } from ".././svgs/animeStars.js"
+import { OtherGlobe, Globe, Spring, Hand, UpsidedownHand } from "../svgs/LandingIcons.js"
+import { CheckerdCircle } from ".././svgs/Checkers.js"
 import { motion, useScroll, useTransform } from "framer-motion";
+import { Link } from "react-router-dom";
+
 
 
 import Experience from "../components/Experience";
 import Cursor from "../components/CustomCursor";
 import { changeCursor } from "../features/cursorSlice";
+import blobs from "../blobsPlaceHolder.png"
 
 
 
@@ -21,7 +27,6 @@ const sizes = {
 
 const PageHome = () => {
 
-
   // API Variables
   const projectsPath = `${apiPath_projects}`
   const pagesPath = `${apiPath_pages}`
@@ -31,6 +36,12 @@ const PageHome = () => {
 
   const projectsData = useSelector((state) => state.project.projects)
   const isProjectsDataLoaded = useSelector((state) => state.project.loaded);
+
+  //state of project image currently shown on hover
+  const shownImage = useSelector((state) => state);
+
+
+
 
   //framer motion variables for scrolling email adress
   const { scrollYProgress } = useScroll();
@@ -45,7 +56,6 @@ const PageHome = () => {
   useEffect(() => {
     const fetchData = async () => {
       const projectResponse = await fetch(pagesPath)
-
       if (projectResponse.ok) {
         const data = await projectResponse.json()
         setData(data)
@@ -54,8 +64,13 @@ const PageHome = () => {
         setLoadStatus(false)
       }
     }
+
+
     fetchData()
-  }, [projectsPath])
+
+  }, [projectsPath, projectsData])
+
+
 
 
   //checks if the viewport is in a mobile view
@@ -93,12 +108,12 @@ const PageHome = () => {
     )
   }
 
+
   //-------------------------------------Cursor Varient Functions--------------------------------------------
   const emailEnter = () => {
     dispatch(changeCursor("email"));
     const cursor = document.getElementById("cursor");
     cursor.innerHTML = "<p>COPY</p>";
-
   }
 
   const elementLeave = () => {
@@ -116,103 +131,116 @@ const PageHome = () => {
     <>
       <Cursor cursorType={cursorType} />
       <section className="landing-section">
-        <div className="threejs">
-          <Canvas camera={{ position: [0, 0, 0] }} >
-            {/* {ballValues} */}
-            <ambientLight />
-            <OrbitControls target-y={1} enableZoom={false} enablePan={screenWidth > 860 ? true : false} enableRotate={screenWidth > 860 ? true : false} />
-          </Canvas>
-        </div>
-
         <motion.div className="premium-gabe"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          <h1>Gabriel <br></br> Kelly</h1>
+          <div className="threejs">
+            {/* <Canvas camera={{ position: [0, 0, 0] }} >
 
-          <div className="circle">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlLang="en" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500">
-              <title>Circular Text Path</title>
+              <ambientLight />
+              <OrbitControls target-y={1} enableZoom={false} enablePan={screenWidth > 860 ? true : false} enableRotate={screenWidth > 860 ? true : false} />
+            </Canvas> */}
+            {/* <img src={blobs} alt="red blopbs" /> */}
+          </div>
 
-              <defs>
-                <path id="textcircle" d="M250,400
-                          a150,150 0 0,1 0,-300a150,150 0 0,1 0,300Z" transform="rotate(12,250,250)" />
-              </defs>
-              <g fill="black" stroke="0" strokeWidth="1">
+          <div className="landing-text">
+            <div className="title-section">
+              {/* <span className="red-line"></span> */}
+              <div className="gabriel">
+                <div className="red-line">
+                </div>
+                <h1 id="gabriel">Gabriel</h1>
+              </div>
+              <div className="kelly">
+                <h1 id="kelly">Kelly</h1>
+                <div className="icon-container">
+                  <UpsidedownHand />
+                  {/* <Hand /> */}
+                  <OtherGlobe />
+                  <UpsidedownHand className="right-hand" />
+                </div>
+              </div>
+            </div>
+            <div className="sub-text">
 
-                <svg className="arrow" clipRule="evenodd" fillRule="evenodd" strokeMiterlimit="2" viewBox="-62 -62 150 150" ><path d="M11 21.883l-6.235-7.527-.765.644 7.521 9 7.479-9-.764-.645-6.236 7.529v-21.884h-1v21.883z" /></svg>
-              </g>
-              <g className="textcircle">
-                <text textLength="940">
-                  <textPath
-                    xlinkHref="#textcircle"
-                    aria-label="CSS & SVG are awesome"
-                    textLength="940">
-                    - Designer - Developer - Designer - Developer
-                  </textPath>
-                </text>
-              </g>
-            </svg>
+              <p>Developer</p>
+
+              <p>designer</p>
+
+            </div>
           </div>
         </motion.div>
-
       </section>
 
+      <section className="arrow">
+        <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171.34 171.34">
+          <rect strokeWidth="20" className="cls-1" x="5.3" width="151.03" height="15" />
+          <rect className="cls-1" x="156.34" width="15" height="15" />
+          <rect className="cls-1" x="88.32" y="83.02" width="151.03" height="15" transform="translate(73.32 254.36) rotate(-90)" />
+          <rect className="cls-1" x="-26.12" y="82.67" width="214.58" height="15" transform="translate(-39.99 83.8) rotate(-45)" />
+          <rect className="cls-1" x="130.39" y="47.16" width="0" height="1.38" />
+        </svg>
+      </section>
 
-      <main>
+      {(isProjectsDataLoaded) ?
 
-        {(isProjectsDataLoaded) ?
-          <>
-            <section id='work'>
+        <>
+          {/* {shownImage.current = (projectsData[0].acf.project_first_image)} */}
+          <WorkSection projectsData={projectsData} />
 
-              <h2>Work</h2>
-              <div className="section-content">
-                {projectsData.map((project, i) => {
-                  return (
-                    <SmallProjectCard
-                      key={i}
-                      project={project}
-                    />
-                  )
-                })}
+          <section className="arrow">
+            <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171.34 171.34">
+              <rect className="cls-1" x="5.3" width="151.03" height="15" />
+              <rect className="cls-1" x="156.34" width="15" height="15" />
+              <rect className="cls-1" x="88.32" y="83.02" width="151.03" height="15" transform="translate(73.32 254.36) rotate(-90)" />
+              <rect className="cls-1" x="-26.12" y="82.67" width="214.58" height="15" transform="translate(-39.99 83.8) rotate(-45)" />
+              <rect className="cls-1" x="130.39" y="47.16" width="0" height="1.38" />
+            </svg>
+          </section>
+
+          <section id="about" >
+            <div className="title">
+              <h2>Who</h2>
+
+              <div className="black-line">
               </div>
-            </section>
+            </div>
 
-            <section id="about" >
-              <h2>Who is Gabriel?</h2>
-
-              <div className="section-content">
-                <div className="three-head">
-                  <Canvas>
-                    <Light brightness={600} color={"#2D49F9"} pos={[-20, 5, 7]} />
-                    <Light brightness={600} color={"#2D49F9"} pos={[20, 7, 7]} />
-                    <ambientLight />
-                    <Experience />
-                  </Canvas>
-                </div>
-                {(isHomePageLoaded) ? <p>{homePageData.acf.aboutMe}</p> : <p>Failed to Load</p>}
+            <div className="three-head">
+              <Canvas>
+                <Light brightness={600} color={"#2D49F9"} pos={[-20, 5, 7]} />
+                <Light brightness={600} color={"#2D49F9"} pos={[20, 7, 7]} />
+                <ambientLight />
+                <Experience />
+              </Canvas>
+            </div>
 
 
-              </div>
-            </section>
+            <div className="section-content">
+              <h3>is he?</h3>
+              {(isHomePageLoaded) ? <p>{homePageData.acf.aboutMe}</p> : <p>Failed to Load</p>}
+            </div>
 
-            <section onMouseEnter={emailEnter} onMouseLeave={elementLeave} onClick={() => { clipboard("email") }} id="contact" >
-              <h3 className="mobile-instructions">Tap to copy to clipboard</h3>
-              <div className="section-content " id="email-scroll">
-                {(isHomePageLoaded) ? <div> <p id="email"  >{homePageData.acf.email}  </p> <p id="email" >{homePageData.acf.email + " "} </p></div> : <p>Failed to Load</p>}
-                {/* {(isHomePageLoaded) ? <a id="linkedin-link" href={homePageData.acf.linkedin}  >Linked In</a> : <p>Failed to Load</p>} */}
-              </div>
-            </section>
-          </>
-          :
-          <>
-            <p>Failed to Load</p>
-          </>
-        }
+          </section>
+
+          <section onMouseEnter={emailEnter} onMouseLeave={elementLeave} onClick={() => { clipboard("email") }} id="contact" >
+            <h3 className="mobile-instructions">Tap to copy to clipboard</h3>
+            <div className="section-content " id="email-scroll">
+              {(isHomePageLoaded) ? <div> <p id="email"  >{homePageData.acf.email}  </p> <p id="email" >{homePageData.acf.email + " "} </p></div> : <p>Failed to Load</p>}
+              {/* {(isHomePageLoaded) ? <a id="linkedin-link" href={homePageData.acf.linkedin}  >Linked In</a> : <p>Failed to Load</p>} */}
+            </div>
+          </section>
+        </>
+        :
+        <>
+          <p>Failed to Load</p>
+        </>
+      }
 
 
 
-      </main>
+
     </>
 
   )

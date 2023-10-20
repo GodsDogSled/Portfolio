@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { apiPath_projects } from "../global/globals";
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux"
+import { useDispatch } from "react-redux";
 import { setProjectData, setLoaded } from "../features/projectsSlice";
 import PageHome from "../pages/PageHome";
 import PageProject from "../pages/PageProject";

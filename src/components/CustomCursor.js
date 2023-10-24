@@ -70,9 +70,11 @@ const Cursor = (props) => {
       );
     };
     window.addEventListener("mousemove", mouseMove)
+    // window.addEventListener("scroll", mouseMove)
 
     return () => {
       window.removeEventListener("mousemove", mouseMove);
+      // window.removeEventListener("scroll", mouseMove);
     }
   }, [props.cursorType])
 

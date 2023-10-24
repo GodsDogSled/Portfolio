@@ -7,6 +7,7 @@
     flex-direction: column;
     font-size: clamp(2rem, 8vw, 3rem);
     font-weight: lighter;
+    margin-bottom: 2em;
 
     span {
       font-weight: 1000;
@@ -51,6 +52,7 @@
 
 @media screen and (min-width:1200px) {
   #work {
+    margin-bottom: 30em;
 
     .section-content {
       display: flex;
@@ -68,7 +70,7 @@
 
     .project-image-container {
       position: relative;
-      height: 25em;
+      height: 27em;
       display: block;
       width: 50%;
       border: solid 1px $primaryDark;
@@ -82,7 +84,7 @@
         img {
           position: absolute;
           top: 0;
-          height: 21.4em;
+          height: 23.4em;
           width: 100%;
           object-fit: cover;
           transition: .4s ease-in;

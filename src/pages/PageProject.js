@@ -30,6 +30,7 @@ const PageProject = () => {
       if (Array.isArray(projectsData)) {
         let thisProject = projectsData.find((project) => project.slug === project_slug);
         setThisProjectData(thisProject);
+        dispatch(changeCursor("default"));
       }
     }
   }, [isProjectsDataLoaded, projectsData, project_slug])

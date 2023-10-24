@@ -68,7 +68,6 @@ const WorkSection = (data) => {
 
             <div className="project-title">
               <p>{shownImage.projectDescription}</p>
-
               <span>{shownImage.workDone}</span>
             </div>
 
@@ -79,11 +78,11 @@ const WorkSection = (data) => {
         <div className="more-projects">
           <p>Here are some select projects that showcase my passion for creating memorable web experiences.   </p>
 
-          <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232.1 127.51">
+          {/* <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 232.1 127.51">
             <rect className="cls-1" y="30.45" width="0" height="1.38" />
             <circle className="cls-1" cx="168.34" cy="63.75" r="63.75" />
           </svg>
-          <Link href="/PageAllProjects">See all Projects</Link>
+          <Link href="/PageAllProjects">See all Projects</Link> */}
         </div>
       </section>
     </>

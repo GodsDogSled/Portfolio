@@ -2,21 +2,20 @@ import { useState, useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import { appTitle, apiPath_pages, apiPath_projects, cursorVarient } from "../global/globals";
 import WorkSection from "../components/workSection";
+import WhoSection from "../components/whoSection";
 import { OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber';
 import Cube from "../components/Cube";
-import { AnimeStar } from ".././svgs/animeStars.js"
+
 import { OtherGlobe, Globe, Spring, Hand, UpsidedownHand } from "../svgs/LandingIcons.js"
-import { CheckerdCircle } from ".././svgs/Checkers.js"
+
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Link } from "react-router-dom";
 
 
-
-import Experience from "../components/Experience";
 import Cursor from "../components/CustomCursor";
 import { changeCursor } from "../features/cursorSlice";
-import blobs from "../blobsPlaceHolder.png"
+
 
 
 
@@ -26,7 +25,6 @@ const sizes = {
 }
 
 const PageHome = () => {
-
   // API Variables
   const projectsPath = `${apiPath_projects}`
   const pagesPath = `${apiPath_pages}`
@@ -36,11 +34,6 @@ const PageHome = () => {
 
   const projectsData = useSelector((state) => state.project.projects)
   const isProjectsDataLoaded = useSelector((state) => state.project.loaded);
-
-  //state of project image currently shown on hover
-  const shownImage = useSelector((state) => state);
-
-
 
 
   //framer motion variables for scrolling email adress
@@ -64,13 +57,8 @@ const PageHome = () => {
         setLoadStatus(false)
       }
     }
-
-
     fetchData()
-
   }, [projectsPath, projectsData])
-
-
 
 
   //checks if the viewport is in a mobile view
@@ -96,17 +84,7 @@ const PageHome = () => {
     cursor.firstChild.style.color = "white";
   }
 
-  function Light({ brightness, color, pos }) {//lighting for the about section 3d head
-    return (
-      <rectAreaLight
-        width={5}
-        height={5}
-        color={color}
-        intensity={brightness}
-        position={pos}
-      />
-    )
-  }
+
 
 
   //-------------------------------------Cursor Varient Functions--------------------------------------------
@@ -186,43 +164,22 @@ const PageHome = () => {
       {(isProjectsDataLoaded) ?
 
         <>
-          {/* {shownImage.current = (projectsData[0].acf.project_first_image)} */}
-          <WorkSection projectsData={projectsData} />
 
+          {/* {shownImage.current = (projectsData[0].acf.project_first_image)} */}
+          <WhoSection isLoaded={isHomePageLoaded} data={homePageData.acf.aboutMe} />
           <section className="arrow">
             <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171.34 171.34">
-              <rect className="cls-1" x="5.3" width="151.03" height="15" />
+              <rect strokeWidth="20" className="cls-1" x="5.3" width="151.03" height="15" />
               <rect className="cls-1" x="156.34" width="15" height="15" />
               <rect className="cls-1" x="88.32" y="83.02" width="151.03" height="15" transform="translate(73.32 254.36) rotate(-90)" />
               <rect className="cls-1" x="-26.12" y="82.67" width="214.58" height="15" transform="translate(-39.99 83.8) rotate(-45)" />
               <rect className="cls-1" x="130.39" y="47.16" width="0" height="1.38" />
             </svg>
           </section>
-
-          <section id="about" >
-            <div className="title">
-              <h2>Who</h2>
-
-              <div className="black-line">
-              </div>
-            </div>
-
-            <div className="three-head">
-              <Canvas>
-                <Light brightness={600} color={"#2D49F9"} pos={[-20, 5, 7]} />
-                <Light brightness={600} color={"#2D49F9"} pos={[20, 7, 7]} />
-                <ambientLight />
-                <Experience />
-              </Canvas>
-            </div>
+          <WorkSection projectsData={projectsData} />
 
 
-            <div className="section-content">
-              <h3>is he?</h3>
-              {(isHomePageLoaded) ? <p>{homePageData.acf.aboutMe}</p> : <p>Failed to Load</p>}
-            </div>
 
-          </section>
 
           <section onMouseEnter={emailEnter} onMouseLeave={elementLeave} onClick={() => { clipboard("email") }} id="contact" >
             <h3 className="mobile-instructions">Tap to copy to clipboard</h3>

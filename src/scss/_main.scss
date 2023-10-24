@@ -92,9 +92,9 @@ body {
 #contact {
   display: flex;
   position: relative;
-  left: -11%;
-  width: 110vw;
-  height: 20vh;
+  left: -19%;
+  width: 115vw;
+  height: 15vh;
   margin: 0;
   z-index: 1;
   background-color: $primaryDark;
@@ -205,7 +205,8 @@ body {
   }
 
   #contact {
-    min-height: 400px;
+    min-height: 230px;
+    height: 15vw;
 
     .mobile-instructions {
       position: absolute;

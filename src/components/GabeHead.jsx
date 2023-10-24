@@ -8,7 +8,7 @@ import { useFrame } from '@react-three/fiber';
 import { Color } from 'three'
 
 
-const GabeHead = (mousePos) => {
+const GabeHead = (props) => {
   const ref = useRef()
   const [clicked, click] = useState(false)
   const [customDelta, setCustomDelta] = useState(0.003);
@@ -17,18 +17,29 @@ const GabeHead = (mousePos) => {
   const white = useMemo(() => new Color('#E2E1E1'), [])
 
   useFrame((state, delta) => {
-    (ref.current.rotation.y += customDelta)
-    ref.current.material.color.lerp(hovered ? white : black, .5)
+    (ref.current.rotation.y += customDelta);
+
+    if (!props.isRevealed) {
+      ref.current.material.color.lerp(hovered ? white : black, .5)
+    }
   })
+
+  if (props.isRevealed) {
+    ref.current.material.color.lerp(white, 1.4);
+    // setHovered(!hovered);
+    // props.isRevealed = false;
+  }
 
 
   const { nodes, materials } = useGLTF('./models/GabeHead.glb')
   return (
     <group dispose={null}>
-      <mesh geometry={nodes.Scene_05.geometry} material={materials.texture} position={[0.579, -0.419, -0.677]} rotation={[0.131, 0.062, -0.072]} scale={0.039}
+      <mesh geometry={nodes.Scene_05.geometry} material={materials.texture} position={[0.579, 1.6, -0.977]} rotation={[0.131, 0.062, -0.072]} scale={0.039}
         ref={ref}
-        onPointerOver={() => setHovered(true)}
-        onPointerOut={() => setHovered(false)}>
+        onPointerOver={() => { setHovered(true); props.handleHover() }}
+        onPointerOut={() => { setHovered(false); props.handleLeave() }}
+        onClick={() => click(!clicked)}
+      >
       </mesh>
     </group>
   )

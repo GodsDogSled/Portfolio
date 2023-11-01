@@ -1,4 +1,4 @@
-import { motion, useAnimate } from "framer-motion";
+import { motion } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 
 const Cursor = (props) => {
@@ -11,7 +11,7 @@ const Cursor = (props) => {
   })
 
   const primaryLight = "#E2E1E1"
-  const primaryDark = "#515454"
+  // const primaryDark = "#515454"
   const myRed = "#FF7979"
 
 

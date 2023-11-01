@@ -1,9 +1,8 @@
 
 import CodeBlock from "./CodeBlock";
 import React from "react";
-import { useState, useEffect, useRef, useCallback } from "react";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { useState, useEffect, useCallback } from "react";
+
 
 
 
@@ -23,16 +22,12 @@ function Highlights2(highlights) {
     if (highlights) {
       setHighlightData(highlights);
       setDataLoaded(true);
-
     }
-
   }, [highlightData, highlights])
 
   //rests dataloaded state on mount for the functions return value.
   useEffect(() => {
     setDataLoaded(false);
-
-
   }, [])
 
   markUpData(highlights);//add symantic markup and classnames to API data 

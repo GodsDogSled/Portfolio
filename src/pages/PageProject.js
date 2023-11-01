@@ -1,10 +1,9 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect, useRef } from "react";
-import Highlights from "../components/Highlights";
 import Highlights2 from "../components/Highlights2";
 import VerticalNav from "../components/VerticalNav";
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import ResponsiveImage from "../components/ResonsiveImage";
 import Cursor from "../components/CustomCursor";
 import { changeCursor } from "../features/cursorSlice";

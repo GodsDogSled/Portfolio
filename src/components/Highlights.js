@@ -1,9 +1,9 @@
 
 import CodeBlock from "./CodeBlock";
 import React from "react";
-import { useState, useEffect, useRef } from "react";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+
 
 
 function Highlights(highlights) {

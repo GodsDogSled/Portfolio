@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import MenuToggle from "./menuToggle";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";

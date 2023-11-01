@@ -1,10 +1,6 @@
 import ResponsiveImage from "../components/ResonsiveImage";
 import SmallProjectCard from "./SmallProjectCard";
-import { Link } from "react-router-dom";
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux"
-import setHoverImage from "../features/hoverImageSlice"
-import AnimatedText from "./AnimatedText";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 

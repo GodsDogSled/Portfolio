@@ -8,17 +8,14 @@ const Experience = (props) => {
 
   const { camera } = useThree();
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  const [hovered, hover] = useState(false)
-  const [clicked, click] = useState(false)
-  const [customDelta, setCustomDelta] = useState(0.003);
+  // const [hovered, hover] = useState(false)
+  // const [clicked, click] = useState(false)
+  // const [customDelta, setCustomDelta] = useState(0.003);
 
   useEffect(() => {
     const handleResize = () => {
       setScreenWidth(window.innerWidth);
     };
-
-
-
     window.addEventListener('resize', handleResize);
   }, [screenWidth])
 

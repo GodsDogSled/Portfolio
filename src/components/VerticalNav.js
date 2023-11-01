@@ -3,10 +3,7 @@ import { useEffect, useRef, useState } from "react";
 
 import {
   motion,
-  useScroll,
-  useSpring,
-  useTransform,
-  MotionValue
+  useScroll
 } from "framer-motion";
 
 
@@ -15,11 +12,10 @@ function VerticalNav(data) {
   let dynamicNavCount = 1;
   let ty = "-50%";
   const [rotation, setRotate] = useState();
-  let h = document.querySelector("html").offsetHeight;
 
-  const ref = useRef(null);
+
+
   const { scrollYProgress } = useScroll({
-
     offset: ["start ", "end "]
   })
 

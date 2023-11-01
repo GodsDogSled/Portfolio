@@ -1,5 +1,5 @@
 import Experience from "../components/Experience";
-import { OrbitControls } from '@react-three/drei'
+
 import { Canvas } from '@react-three/fiber';
 import { useState } from "react";
 import AnimatedText from "./AnimatedText";
@@ -49,7 +49,7 @@ const WhoSection = (info) => {
     }
   }
 
-  const primaryDark = "#515454";
+  // const primaryDark = "#515454";
   const myRed = "#FF7979";
 
   const ref = useRef(null);

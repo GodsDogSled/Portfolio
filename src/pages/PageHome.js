@@ -1,18 +1,18 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux"
-import { appTitle, apiPath_pages, apiPath_projects, cursorVarient } from "../global/globals";
+import { apiPath_pages, apiPath_projects } from "../global/globals";
 import WorkSection from "../components/workSection";
 import WhoSection from "../components/whoSection";
 import AnimatedText from "../components/AnimatedText";
-import { OrbitControls } from '@react-three/drei'
-import { Canvas } from '@react-three/fiber';
-import Cube from "../components/Cube";
+// import { OrbitControls } from '@react-three/drei'
+// import { Canvas } from '@react-three/fiber';
+
 import Spline from '@splinetool/react-spline';
 
-import { OtherGlobe, Globe, Spring, Hand, UpsidedownHand } from "../svgs/LandingIcons.js"
+import { OtherGlobe, UpsidedownHand } from "../svgs/LandingIcons.js"
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Link } from "react-router-dom";
+import { motion, useScroll, } from "framer-motion";
+
 
 
 import Cursor from "../components/CustomCursor";

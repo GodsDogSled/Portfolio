@@ -3,6 +3,7 @@
 .landing-section {
   height: calc(95vh - 5vw);
   position: relative;
+  margin-bottom: 10em;
 }
 
 .premium-gabe {
@@ -14,18 +15,25 @@
 
   h1 {
     font-size: clamp(2rem, 15vw, 5rem);
-    font-family: Migra !important;
+    font-family: HelveticaDisplayNow !important;
     text-transform: uppercase;
     color: $primaryDark;
-    line-height: .8;
+    line-height: .7;
+    letter-spacing: .04em;
+
+    .migra {
+      font-family: Migra !important;
+      font-size: clamp(2rem, 16vw, 6.3rem);
+    }
   }
 
   .threejs {
     border: solid 1px $primaryDark;
-    z-index: -1000;
+    z-index: 0;
     height: 40%;
     width: 100%;
     border-radius: 0 0px 0px 50px;
+    overflow: hidden;
 
     img {
       object-fit: cover;
@@ -44,13 +52,13 @@
     .title-section {
       .gabriel {
         display: flex;
-        gap: 2em;
-        padding-bottom: 1em;
+        gap: 1.5em;
+        padding-bottom: 1.5em;
 
         .red-line {
           width: 50%;
           height: 1px;
-          background-color: $myRed;
+          background-color: $primaryDark;
           align-self: center;
         }
       }
@@ -66,10 +74,10 @@
 
         .icon-container {
           border-radius: 100px;
-          height: clamp(2em, 10vw, 60px);
+          height: clamp(2em, 11vw, 60px);
           width: 100%;
           margin-left: 2rem;
-          border: solid 1px $myRed;
+          border: solid 1px $primaryDark;
           display: flex;
           align-items: center;
           justify-content: space-around;
@@ -113,6 +121,8 @@
 
     .sub-text {
       display: flex;
+      flex-direction: column;
+      height: 10%;
       justify-content: space-between;
       text-transform: uppercase;
       font-size: clamp(1rem, 3vw, 1.5rem);
@@ -129,28 +139,34 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: calc(100vh - (60px + 4vw));
+    margin-bottom: 20em;
   }
 
   .premium-gabe {
     max-width: 1400px;
     display: flex;
-    gap: 4em;
-    height: 24vw;
+    gap: 8em;
+    height: 100%;
     padding: 0;
+    align-items: center;
+
 
 
     h1 {
-      font-size: clamp(2rem, 8vw, 5rem);
+      font-size: clamp(1rem, 6vw, 5rem);
     }
 
     .threejs {
       width: 50%;
       height: 100%;
+      transition: .4s ease-out;
     }
 
     .landing-text {
-      width: 60%;
-      height: 100%;
+      width: 50%;
+      height: 80%;
+      align-self: flex-end;
       padding: 0;
       justify-content: space-between;
 
@@ -165,38 +181,42 @@
       }
     }
 
-    .sub-text {
-      position: relative;
+    .bottom-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      height: 15%;
+    }
 
-      svg {
-        position: absolute;
-        height: 290%;
-        top: -24px;
-        left: 80px;
-        fill: $myRed;
-        z-index: -10;
-        transition: .5s;
-        opacity: 0;
+    .small-text {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
 
+      p {
+
+
+        text-transform: uppercase;
+        margin: 0;
+        font-size: clamp(1rem, 1vw, 2rem);
+        transition: 1s;
+        width: fit-content;
       }
+    }
+
+    .sub-text {
+
 
       p {
         margin: 0;
-        font-size: clamp(1rem, 1.4vw, 2rem);
+        font-size: clamp(1rem, 1vw, 2rem);
         transition: 1s;
-        position: relative;
+        width: fit-content;
 
         &:hover {
           transform: rotate(-10deg);
         }
-
-
-
-        // &:hover~svg {
-        //   // font-family: Migra;
-        //   // font-size: clamp(1rem, 1.7vw, 3rem);
-        //   opacity: 1;
-        // }
       }
     }
   }
@@ -215,7 +235,7 @@
 @media screen and (min-width: 1400px) {
   .premium-gabe {
     h1 {
-      font-size: clamp(2rem, 9vw, 7rem);
+      font-size: clamp(2rem, 7vw, 6rem);
     }
 
     .threejs {
@@ -229,10 +249,10 @@
   .premium-gabe {
     gap: 6em;
     max-width: 2000px;
-    height: 21vw;
+    height: 39vw;
 
     h1 {
-      font-size: clamp(2rem, 10vw, 10rem);
+      font-size: clamp(2rem, 9vw, 9rem);
     }
 
     .threejs {
@@ -243,8 +263,6 @@
       .gabriel {
         gap: 2.5em !important;
 
-
-
         .red-line {
           height: .1em !important;
           border-radius: 80px;
@@ -252,9 +270,17 @@
       }
     }
 
-    .kelly {
-      .icon-container {
-        border: solid .1em $primaryDark !important;
+    .bottom-section {
+      .arrow {
+        width: 100px;
+      }
+
+      .small-text {
+
+        p {
+          font-size: 20px;
+        }
+
       }
     }
   }

@@ -4,9 +4,18 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux"
 import setHoverImage from "../features/hoverImageSlice"
-
+import AnimatedText from "./AnimatedText";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
 const WorkSection = (data) => {
+
+  const ref = useRef(null);
+  const imgRef = useRef(null);
+
+  const isInView = useInView(ref, { amount: .5, once: true })
+  const imgInView = useInView(imgRef, { amount: .5, once: true })
+
 
   //states for the image section variable
   const [shownImage, setShownImage] = useState({
@@ -25,7 +34,6 @@ const WorkSection = (data) => {
     }
 
     setShownImage({
-      // imageSizesObject: imageSizes,
       imageTitle: title,
       workDone: work,
       projectDescription: description,
@@ -39,7 +47,7 @@ const WorkSection = (data) => {
   return (
     <>
       <section id='work'>
-        <h2>Featured <span>Projects</span></h2>
+        <motion.h2 ref={ref} initial={{ x: -100, opacity: 0 }} animate={isInView ? { x: 0, opacity: 1, transition: { duration: 2 } } : ""}>featured <span>Projects</span></motion.h2>
         <div className="section-content">
           <div className="small-projects-container">
             {data.projectsData.map((project, i) => {
@@ -55,7 +63,7 @@ const WorkSection = (data) => {
 
           </div>
 
-          <div className="project-image-container">
+          <motion.div ref={imgRef} initial={{ x: 100, opacity: 0 }} animate={imgInView ? { x: 0, opacity: 1, transition: { duration: 1.5 } } : ""} className="project-image-container">
             <div className="all-images-container">
               {
                 data.projectsData.map((project, i) => {
@@ -71,7 +79,7 @@ const WorkSection = (data) => {
               <span>{shownImage.workDone}</span>
             </div>
 
-          </div>
+          </motion.div>
 
         </div>
 

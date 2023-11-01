@@ -3,9 +3,11 @@ import { useSelector, useDispatch } from "react-redux"
 import { appTitle, apiPath_pages, apiPath_projects, cursorVarient } from "../global/globals";
 import WorkSection from "../components/workSection";
 import WhoSection from "../components/whoSection";
+import AnimatedText from "../components/AnimatedText";
 import { OrbitControls } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber';
 import Cube from "../components/Cube";
+import Spline from '@splinetool/react-spline';
 
 import { OtherGlobe, Globe, Spring, Hand, UpsidedownHand } from "../svgs/LandingIcons.js"
 
@@ -15,6 +17,7 @@ import { Link } from "react-router-dom";
 
 import Cursor from "../components/CustomCursor";
 import { changeCursor } from "../features/cursorSlice";
+import DesignArrow from "../components/designArrow";
 
 
 
@@ -84,9 +87,6 @@ const PageHome = () => {
     cursor.firstChild.style.color = "white";
   }
 
-
-
-
   //-------------------------------------Cursor Varient Functions--------------------------------------------
   const emailEnter = () => {
     dispatch(changeCursor("email"));
@@ -99,83 +99,67 @@ const PageHome = () => {
     const cursor = document.getElementById("cursor");
     cursor.innerHTML = "";
   }
-  let balls = [0];
 
-  let ballValues = balls.map((number, index) => {
-    return <Cube posX={0} posY={0} posZ={0} growth={(Math.random() * .005)} />
-  })
 
   return (
     <>
       <Cursor cursorType={cursorType} />
       <section className="landing-section">
-        <motion.div className="premium-gabe"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-        >
+        <div className="premium-gabe">
           <div className="threejs">
-            {/* <Canvas camera={{ position: [0, 0, 0] }} >
-
-              <ambientLight />
-              <OrbitControls target-y={1} enableZoom={false} enablePan={screenWidth > 860 ? true : false} enableRotate={screenWidth > 860 ? true : false} />
-            </Canvas> */}
-            {/* <img src={blobs} alt="red blopbs" /> */}
+            <Spline scene="https://prod.spline.design/s5h3SCNWuq-Q3ZvR/scene.splinecode" />
           </div>
 
           <div className="landing-text">
             <div className="title-section">
-              {/* <span className="red-line"></span> */}
-              <div className="gabriel">
+              <motion.div initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: .5, duration: 1.5, type: "spring", stiffness: 10 }} className="gabriel">
                 <div className="red-line">
                 </div>
-                <h1 id="gabriel">Gabriel</h1>
-              </div>
-              <div className="kelly">
-                <h1 id="kelly">Kelly</h1>
+                {/* <h1 id="gabriel"><span className="migra">g</span>ab<span className="migra">r</span>ie<span className="migra">l</span></h1> */}
+                <h1 id="gabriel">
+                  gabriel
+                </h1>
+                <h1 className="sr-only">gabriel kelly</h1>
+              </motion.div>
+              <motion.div className="kelly" initial={{ x: -100, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: .9, duration: 1.5 }} >
+                <h1 id="gabriel">
+                  kelly
+                </h1>
                 <div className="icon-container">
                   <UpsidedownHand />
                   {/* <Hand /> */}
                   <OtherGlobe />
                   <UpsidedownHand className="right-hand" />
                 </div>
+              </motion.div>
+            </div>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.2, duration: 1 }} className="bottom-section">
+
+              <div className="small-text">
+                <p>
+                  <AnimatedText text={"developer"} />
+                </p>
+
+
+                <p>designer</p>
               </div>
-            </div>
-            <div className="sub-text">
 
-              <p>Developer</p>
+              <DesignArrow />
 
-              <p>designer</p>
-
-            </div>
+            </motion.div>
           </div>
-        </motion.div>
+        </div>
       </section>
 
-      <section className="arrow">
-        <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171.34 171.34">
-          <rect strokeWidth="20" className="cls-1" x="5.3" width="151.03" height="15" />
-          <rect className="cls-1" x="156.34" width="15" height="15" />
-          <rect className="cls-1" x="88.32" y="83.02" width="151.03" height="15" transform="translate(73.32 254.36) rotate(-90)" />
-          <rect className="cls-1" x="-26.12" y="82.67" width="214.58" height="15" transform="translate(-39.99 83.8) rotate(-45)" />
-          <rect className="cls-1" x="130.39" y="47.16" width="0" height="1.38" />
-        </svg>
-      </section>
+
 
       {(isProjectsDataLoaded) ?
 
         <>
 
-          {/* {shownImage.current = (projectsData[0].acf.project_first_image)} */}
+
           <WhoSection isLoaded={isHomePageLoaded} data={homePageData.acf.aboutMe} />
-          <section className="arrow">
-            <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171.34 171.34">
-              <rect strokeWidth="20" className="cls-1" x="5.3" width="151.03" height="15" />
-              <rect className="cls-1" x="156.34" width="15" height="15" />
-              <rect className="cls-1" x="88.32" y="83.02" width="151.03" height="15" transform="translate(73.32 254.36) rotate(-90)" />
-              <rect className="cls-1" x="-26.12" y="82.67" width="214.58" height="15" transform="translate(-39.99 83.8) rotate(-45)" />
-              <rect className="cls-1" x="130.39" y="47.16" width="0" height="1.38" />
-            </svg>
-          </section>
+
           <WorkSection projectsData={projectsData} />
 
 

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux"
 import { changeCursor } from "../features/cursorSlice";
+import AnimatedText from "./AnimatedText";
 
 function SmallProjectCard(projectObject) {
   const dispatch = useDispatch();
@@ -39,7 +40,9 @@ function SmallProjectCard(projectObject) {
           <div className="text-content">
             <span className="number">0{projectObject.numb}</span>
             <div className="arrow-container">
-              <h3>{projectObject.project.acf.project_title}</h3>
+              {/* <h3>{projectObject.project.acf.project_title}</h3> */}
+              <h3><AnimatedText text={projectObject.project.acf.project_title} wait={.1} varient={"project"} /></h3>
+
 
               <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 171.34 171.34">
                 <rect className="cls-1" x="5.3" width="151.03" height="15" />

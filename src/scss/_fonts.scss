@@ -1,19 +1,23 @@
 @font-face {
   font-family: HelveticaDisplayNow;
-  src: url(../fonts/HelveticaNowDisplay-Medium.woff)
+  src: url(../fonts/HelveticaNowDisplay-Medium.woff);
+  font-display: swap;
 }
 
 @font-face {
   font-family: HelveticaDisplayNowItalic;
-  src: url(../fonts/HELVETICANOWDISPLAY-REGITA.TTF)
+  src: url(../fonts/HELVETICANOWDISPLAY-REGITA.TTF);
+  font-display: swap;
 }
 
 @font-face {
   font-family: MigraExtraLight;
-  src: url(../fonts/._Migra-Extralight.woff)
+  src: url(../fonts/._Migra-Extralight.woff);
+  font-display: swap;
 }
 
 @font-face {
   font-family: MigraBold;
-  src: url(../fonts/MIGRA-EXTRABOLD.OTF)
+  src: url(../fonts/MIGRA-EXTRABOLD.OTF);
+  font-display: swap;
 }

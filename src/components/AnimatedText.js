@@ -44,14 +44,14 @@ const AnimatedText = ({ text, wait, varient }) => {
     <>
       <motion.span ref={ref} initial="hidden" animate={isInView ? "visible" : "hidden"} transition={{ staggerChildren: .06 }} aria-hidden>
         {
-          text.split(" ").map(word => {
+          text.split(" ").map((word, i) => {
             return (
-              <motion.span >
+              <motion.span key={i}>
 
                 {
-                  word.split("").map(char => {
+                  word.split("").map((char, i) => {
                     return (
-                      <motion.span style={{ display: "inline-block" }} variants={selectVarient}>{char}</motion.span>
+                      <motion.span key={i} style={{ display: "inline-block" }} variants={selectVarient}>{char}</motion.span>
                     )
                   })
                 }

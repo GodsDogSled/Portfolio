@@ -17,7 +17,7 @@
     text-transform: uppercase;
     font-family: Migra;
     color: $primaryLight;
-    -webkit-text-stroke: 2px $primaryDark;
+    -webkit-text-stroke: 1px $primaryDark;
     line-height: clamp(4rem, .8em, 18rem);
     // width: 270px;
 
@@ -28,7 +28,7 @@
     margin: 0;
     text-transform: uppercase;
     font-weight: 100;
-    font-size: clamp(1rem, 4vw, 3rem);
+    font-size: clamp(1.5rem, 4vw, 3rem);
     line-height: .9em;
     transition: .8s;
     min-width: 2.9em;
@@ -145,6 +145,7 @@
 
     h2 {
       font-size: clamp(4rem, 18vw, 10rem);
+      -webkit-text-stroke: 2px $primaryDark;
     }
 
     .who-text {
@@ -188,7 +189,6 @@
     .who-text {
       h3 {
         font-size: 2.8em;
-
       }
 
       p {

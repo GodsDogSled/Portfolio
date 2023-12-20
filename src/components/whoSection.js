@@ -1,13 +1,20 @@
-import Experience from "../components/Experience";
+// import HeadExperience from "../components/Experience";
 
 import { Canvas } from '@react-three/fiber';
 import { useState } from "react";
 import AnimatedText from "./AnimatedText";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, lazy, Suspense } from "react";
+
+const HeadExperience = lazy(() => import("../components/Experience"));
 
 
 const WhoSection = (info) => {
+
+  // const { refer, inView } = useInView({
+
+  //   triggerOnce: true,
+  // });
 
   const fadeInX = {
     hidden: {
@@ -117,7 +124,12 @@ const WhoSection = (info) => {
             <Light brightness={600} color={"#2D49F9"} pos={[-20, 5, 7]} />
             <Light brightness={600} color={"#2D49F9"} pos={[20, 7, 7]} />
             <ambientLight />
-            <Experience handleHover={revealText} handleLeave={(textRevealed ? "" : hideText)} isRevealed={textRevealed} />
+
+            <Suspense fallback={null}>
+              {isInView && (<HeadExperience handleHover={revealText} handleLeave={(textRevealed ? "" : hideText)} isRevealed={textRevealed} />)}
+            </Suspense>
+
+
           </Canvas>
         </motion.div>
 

@@ -1,10 +1,17 @@
 import { OrbitControls } from "@react-three/drei"
-import { useState, useEffect } from "react";
-import GabeHead from "./GabeHead.jsx"
+import { useState, useEffect, lazy } from "react";
+// import GabeHead from "./GabeHead.jsx"
 import { useThree } from '@react-three/fiber';
 
+import { useInView } from 'react-intersection-observer'
+const GabeHead = lazy(() => import("./GabeHead.jsx"));
 
 const Experience = (props) => {
+
+  const { ref, inView } = useInView({
+
+    triggerOnce: true,
+  });
 
   const { camera } = useThree();
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
@@ -31,7 +38,10 @@ const Experience = (props) => {
         minPolarAngle={Math.PI / 4}
         maxPolarAngle={Math.PI - Math.PI / 3}
       />
+
       <GabeHead isRevealed={props.isRevealed} handleLeave={props.handleLeave} handleHover={props.handleHover} position={[0, 0, 0]} />
+
+
     </>
 
   )

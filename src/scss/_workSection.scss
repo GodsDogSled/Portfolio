@@ -14,13 +14,14 @@
       font-size: clamp(4rem, 15vw, 7rem);
       font-family: Migra;
       color: $primaryLight;
-      -webkit-text-stroke: 2px $primaryDark;
+      -webkit-text-stroke: 1px $primaryDark;
     }
   }
 
   p {
     font-size: 1.1em;
-    width: 85%;
+    margin: 0;
+    // width: 85%;
   }
 
   .more-projects {
@@ -53,6 +54,12 @@
 @media screen and (min-width:1200px) {
   #work {
     margin-bottom: 30em;
+
+    h2 {
+      span {
+        -webkit-text-stroke: 2px $primaryDark;
+      }
+    }
 
     .section-content {
       display: flex;

@@ -35,7 +35,7 @@ const PageProject = () => {
   }, [isProjectsDataLoaded, projectsData, project_slug])
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
   }, []);
 
 

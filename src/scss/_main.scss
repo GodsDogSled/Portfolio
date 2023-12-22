@@ -1,10 +1,13 @@
 @use "var" as *;
 
 body {
-  // cursor: none;
   overflow-x: hidden;
   background-color: $primaryLight;
   cursor: url()
+}
+
+.site-wrapper {
+  overflow: hidden;
 }
 
 a {
@@ -17,6 +20,7 @@ a {
 
 #cursor {
   display: none;
+  transition: .2s;
   position: relative;
   background-color: $primaryDark;
   height: 20px;
@@ -54,10 +58,7 @@ main {
 h1 {
   font-size: 4rem;
   margin: 0;
-
-
 }
-
 
 h2,
 h3,
@@ -78,10 +79,6 @@ body {
   background-color: $primaryLight;
 }
 
-#work {
-  // margin-top: 25vh;
-}
-
 .section-content {
   padding-top: 0;
   min-height: 30vh;
@@ -91,17 +88,53 @@ body {
   }
 }
 
+#forever-message {
+  position: relative;
+  left: -5.5%;
+  margin-bottom: 20rem;
+  width: 115vw;
+  min-height: 3em;
 
+
+  #email-scroll {
+    animation: scrollText 25s linear infinite;
+    width: max-content;
+    background-color: $myRed;
+
+    #scroll-text {
+      display: flex;
+    }
+  }
+
+  #email {
+    margin: 0rem 2rem 0rem 0;
+    text-transform: uppercase;
+    font-size: 5.5vw;
+    color: $primaryLight;
+    font-weight: 100;
+    line-height: 8.5vw;
+    transition: all 1s ease;
+    height: fit-content;
+  }
+}
+
+#forever {
+  color: $primaryDark;
+  line-height: 7vw;
+  font-weight: 1000;
+  margin: 0;
+  text-transform: uppercase;
+  font-size: clamp(3em, 10vw, 30em);
+}
 
 #contact {
-  display: flex;
   position: relative;
   left: -19%;
   width: 115vw;
   height: 15vh;
   margin: 0;
   z-index: 1;
-  background-color: $primaryDark;
+  background-color: $myRed;
   padding: 0;
 
   &:hover {
@@ -121,20 +154,10 @@ body {
 
   .section-content {
     display: flex;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    align-items: center;
-    overflow: hidden;
-    justify-content: flex-start;
-    white-space: nowrap;
-    transition: all .5s ease;
-    margin-left: 0px;
 
     div {
       text-align: center;
       display: flex;
-      animation: scrollText 30s infinite linear;
     }
 
     p {
@@ -144,58 +167,37 @@ body {
       color: $primaryLight;
       transition: all 1s ease;
       cursor: none;
+      height: fit-content;
     }
-
   }
 
   @keyframes scrollText {
-    from {
-      transform: translateX(0%);
-    }
-
     to {
-      transform: translateX(-50%);
+      transform: translate(-50%);
+    }
+  }
+
+  .arrow {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: flex-end;
+    width: 3em;
+    opacity: 1;
+    z-index: -2;
+
+    svg {
+      transform: scaleY(-1) scaleX(-1);
+      fill: $myRed;
+      stroke-width: 10px;
     }
   }
 }
-
-.arrow {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  justify-content: flex-end;
-
-  width: 3em;
-  opacity: 1;
-  z-index: -2;
-  // margin-bottom: 19em;
-
-
-
-  svg {
-    transform: scaleY(-1) scaleX(-1);
-
-    // transform: rotate(-45deg);
-    // transform: scale(1.9);
-    fill: $myRed;
-    stroke-width: 10px;
-
-
-
-  }
-}
-
-
-
-
-
 
 @media screen and (min-width:768px) {
   main {
     margin: 0;
   }
-
-
 
   #about {
     margin-top: 25vh;
@@ -234,7 +236,6 @@ body {
     display: none;
   }
 
-
   #cursor {
     display: block;
   }
@@ -258,6 +259,10 @@ body {
 }
 
 @media screen and (min-width:1400px) {
+  #forever-message {
+    left: -20.5%;
+  }
+
   #about {
     .section-content {
       .three-head {

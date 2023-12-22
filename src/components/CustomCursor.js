@@ -23,16 +23,14 @@ const Cursor = (props) => {
       y: mousePos.y,
       backgroundColor: primaryLight,
       mixBlendMode: "difference",
-
     },
     email: {
       x: mousePos.x - 1,
       y: mousePos.y - 1,
-      backgroundColor: primaryLight,
-      mixBlendMode: "difference",
-      scale: 6,
+      backgroundColor: myRed,
+      // mixBlendMode: "difference",
+      scale: 15,
       content: "Copy to clipboard",
-
     },
     project: {
       x: mousePos.x - 1,
@@ -40,9 +38,7 @@ const Cursor = (props) => {
       backgroundColor: myRed,
       mixBlendMode: "normal",
       scale: 4,
-      content: "View",
-
-
+      content: "Viewyy",
     },
   }
 

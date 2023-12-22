@@ -17,7 +17,7 @@ header {
   }
 
   #hamburger-svg {
-    stroke: red;
+    stroke: $myRed;
   }
 
   .hamburger {
@@ -32,7 +32,7 @@ header {
     }
 
     .hamburger-container {
-      background-color: #F55555;
+      background-color: $myRed;
       margin: 0;
       position: absolute;
       top: 0;

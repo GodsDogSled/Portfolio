@@ -1,0 +1,63 @@
+@use "var" as *;
+
+.contact {
+  cursor: none;
+  margin: 20rem 0 20rem 0;
+  ;
+
+  svg {
+    fill: $myRed;
+  }
+
+  .title {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+  }
+
+  h2 {
+    margin: 0;
+    width: fit-content;
+    font-size: clamp(3rem, 26vw, 34rem);
+    font-family: HelveticaDisplayNow, sans-serif !important;
+    text-transform: uppercase;
+    color: $primaryDark;
+    line-height: .8;
+    letter-spacing: .04em;
+  }
+
+  #blobs {
+    width: fit-content;
+    height: clamp(2rem, 19vw, 27rem);
+    align-self: center;
+  }
+
+  #reach {
+    position: relative;
+
+  }
+
+  #anime-star2 {
+    position: absolute;
+    height: clamp(2rem, 15vw, 100rem);
+    top: 6%;
+    right: 7%;
+    transform: scaleX(-1);
+  }
+
+  #out {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-self: flex-end;
+  }
+
+  #email {
+    padding: 1em 0 2em 0;
+    margin-top: 1.4em;
+    border-top: 1px solid $primaryDark;
+    font-size: clamp(1em, 7vw, 100vw)
+  }
+
+
+}

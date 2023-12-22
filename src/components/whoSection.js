@@ -124,12 +124,9 @@ const WhoSection = (info) => {
             <Light brightness={600} color={"#2D49F9"} pos={[-20, 5, 7]} />
             <Light brightness={600} color={"#2D49F9"} pos={[20, 7, 7]} />
             <ambientLight />
-
             <Suspense fallback={null}>
               {isInView && (<HeadExperience handleHover={revealText} handleLeave={(textRevealed ? "" : hideText)} isRevealed={textRevealed} />)}
             </Suspense>
-
-
           </Canvas>
         </motion.div>
 

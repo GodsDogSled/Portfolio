@@ -83,9 +83,9 @@
       border: solid 1px $primaryDark;
       margin: 2em 0 0em 0em;
       border-radius: 0 0px 0px 50px;
-      justify-content: space-between;
+
       text-transform: uppercase;
-      // overflow: hidden;
+
 
       .all-images-container {
         img {
@@ -101,6 +101,7 @@
       .project-title {
         position: absolute;
         width: 100%;
+        justify-content: space-between;
         bottom: 0;
         border-top: 1px solid $primaryDark;
         text-align: right;
@@ -111,16 +112,16 @@
 
         p {
           text-align: left;
+          padding: 1em 0 1em 0em;
         }
 
         span {
           font-size: .7em;
           align-self: center;
+          max-width: 7em;
           font-family: HelveticaDisplayNow;
         }
       }
-
-
     }
 
     #work-done {

@@ -6,9 +6,7 @@ body {
   cursor: url()
 }
 
-.site-wrapper {
-  overflow: hidden;
-}
+
 
 a {
   cursor: none;
@@ -90,9 +88,10 @@ body {
 
 #forever-message {
   position: relative;
+  overflow: hidden;
   left: -5.5%;
   margin-bottom: 20rem;
-  width: 115vw;
+  width: 110vw;
   min-height: 3em;
 
 
@@ -125,6 +124,7 @@ body {
   margin: 0;
   text-transform: uppercase;
   font-size: clamp(3em, 10vw, 30em);
+  transform: translateX(-.5vw)
 }
 
 #contact {

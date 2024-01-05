@@ -7,7 +7,7 @@ body {
 }
 
 main {
-  overflow-x: hidden;
+  // overflow-x: hidden;
 }
 
 
@@ -87,6 +87,7 @@ body {
 
   #email-scroll {
     margin-left: 0px;
+    max-width: 100vw;
   }
 }
 

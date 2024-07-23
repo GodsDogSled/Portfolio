@@ -47,6 +47,7 @@ const WorkSection = (data) => {
         <div className="section-content">
           <div className="small-projects-container">
             {data.projectsData.map((project, i) => {
+              console.log(project.acf.featured)
               return (
                 <SmallProjectCard
                   key={i}

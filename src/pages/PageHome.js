@@ -132,12 +132,14 @@ const PageHome = () => {
                 <div className="paragraph">
                   <p> Adversary of <br></br>unremarkable</p>
                 </div>
-                <div id="text">
-                  <div id="developer">
-                    <p>development</p>
+                <div class="text-container">
+                  <div id="text">
+                    <div id="developer">
+                      <p>development</p>
+                    </div>
+                    <p id="ampersand">&</p>
+                    <div id="designer"><p>design</p></div>
                   </div>
-                  <p id="ampersand">&</p>
-                  <div id="designer"><p>design</p></div>
                   <div id="red-bar"></div>
                 </div>
               </div>

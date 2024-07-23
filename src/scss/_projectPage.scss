@@ -141,7 +141,7 @@ html {
   padding-left: 4px;
   font-size: 2.5em;
   font-family: Migra;
-  color: #F55555;
+  color: $myRed;
 }
 
 .highlights {
@@ -327,7 +327,7 @@ html {
         z-index: 999;
 
         .vert-nav-active {
-          background-color: #F55555;
+          background-color: $myRed;
           color: $primaryDark;
 
           &:hover {
@@ -378,12 +378,12 @@ html {
             font-family: Migra;
             // border: .001em solid $primaryDark;
             border-radius: 50%;
-            padding: .5em;
+            padding: .6em;
             height: 5px;
             width: 5px;
 
             &:hover {
-              background-color: #F55555;
+              background-color: $myRed;
               color: $primaryDark;
 
             }
@@ -450,7 +450,7 @@ html {
   }
 
   .live-site:hover {
-    background-color: #F55555;
+    background-color: $myRed;
   }
 }
 

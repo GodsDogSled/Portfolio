@@ -47,6 +47,35 @@
     width: 100%;
     padding-top: clamp(50px, 20vw, 50px);
 
+    // .text-container:hover {
+    //   p {
+    //     color: $myRed ;
+    //     transition: .5s;
+    //   }
+
+    //   #developer {
+    //     font-size: 1.5em;
+    //     font-weight: bold;
+    //     letter-spacing: 1.5rem;
+    //   }
+
+    //   #designer {
+    //     font-size: 1.5em;
+    //     font-weight: bold;
+    //     letter-spacing: 1.5rem;
+    //   }
+
+    //   #red-bar {
+    //     background-color: $primaryLight;
+    //   }
+
+    //   #ampersand {
+    //     color: $primaryDark !important;
+    //     -webkit-text-stroke: 0px;
+    //   }
+
+    // }
+
     .title-section {
       .gabriel {
         display: flex;
@@ -133,12 +162,20 @@
       height: clamp(10vh, 40vh, 50vh);
     }
 
+
+
     .small-text {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: right;
       flex-direction: column-reverse;
+
+      .text-container {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+      }
 
       #text {
         display: flex;
@@ -155,13 +192,13 @@
       }
 
       #red-bar {
-        position: absolute;
-        width: .2em;
-        height: 55vh;
+        // position: absolute;
+        width: .4em;
+        height: 95%;
         background-color: $myRed;
-        margin-left: .2em;
-        top: 0;
-        right: -.3em;
+        margin-left: 1em;
+        top: -1em;
+        right: -.5em;
       }
 
       #developer {
@@ -172,6 +209,7 @@
 
       #ampersand {
         font-family: Migra;
+        display: flex;
         position: absolute;
         top: -.1em;
         color: #E2E1E1;
@@ -243,9 +281,8 @@
         padding-bottom: 2em;
 
         #red-bar {
-          height: 22vh;
-          width: 0.7em;
-          top: -.1em;
+          margin-left: 0em;
+          width: .2em;
         }
 
         #text {
@@ -288,9 +325,8 @@
     .landing-text {
       .small-text {
         #red-bar {
-          height: 17vw;
-          width: 0.7em;
-          top: -.8em;
+          height: 100%;
+          width: .3em;
         }
 
         p {
@@ -343,6 +379,8 @@
         p {
           font-size: clamp(2em, 2vw, 20em);
         }
+
+
 
         #ampersand {
           font-size: clamp(2em, 12.5vw, 20em);

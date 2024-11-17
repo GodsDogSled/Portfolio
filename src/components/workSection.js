@@ -47,15 +47,19 @@ const WorkSection = (data) => {
         <div className="section-content">
           <div className="small-projects-container">
             {data.projectsData.map((project, i) => {
-              console.log(project.acf.featured)
-              return (
-                <SmallProjectCard
-                  key={i}
-                  project={project}
-                  numb={i + 1}
-                  updateImage={updateImage}
-                />
-              )
+              console.log(project.acf.featured, project.acf.project_title)
+              if (project.acf.featured) {
+                return (
+                  <SmallProjectCard
+                    key={i}
+                    project={project}
+                    numb={i + 1}
+                    updateImage={updateImage}
+                  />
+                )
+              } else {
+                return null
+              }
             })}
 
           </div>

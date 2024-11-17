@@ -6,13 +6,12 @@ import WorkSection from "../components/workSection";
 import WhoSection from "../components/whoSection";
 import ContactSection from "../components/contactSection";
 
-import AnimatedText from "../components/AnimatedText";
-import { OtherGlobe, UpsidedownHand, AnimeStar, MotionRings, Clipboard } from "../svgs/LandingIcons.js";
-import { motion } from "framer-motion";
-// import Spline from '@splinetool/react-spline';
+
+import { OtherGlobe, UpsidedownHand, AnimeStar, MotionRings } from "../svgs/LandingIcons.js";
+
 import Cursor from "../components/CustomCursor";
 import { changeCursor } from "../features/cursorSlice";
-import DesignArrow from "../components/designArrow";
+
 
 
 
@@ -64,9 +63,6 @@ const PageHome = () => {
 
     window.addEventListener('resize', handleResize);
   }, [screenWidth])
-
-
-
 
 
   //copies email adress to clipboard

@@ -54,10 +54,10 @@
   }
 
   #email {
-    padding: 1em 0 2em 0;
-    margin-top: 1.4em;
+    padding: .6em 0 1em 0;
+    margin-top: 1em;
     border-top: 1px solid $primaryDark;
-    font-size: clamp(1em, 7vw, 100vw)
+    font-size: clamp(25.6px, calc(90vw*.0758), 141.8px);
   }
 
 

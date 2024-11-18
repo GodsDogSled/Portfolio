@@ -31,12 +31,14 @@ header {
       height: 40px;
     }
 
+
+
     .hamburger-container {
       background-color: $myRed;
       margin: 0;
       position: absolute;
       top: 0;
-      right: -950px;
+      right: 0px;
       transition: .8s ease;
       width: 100vw;
       height: 100vh;
@@ -60,7 +62,7 @@ header {
       a {
         text-decoration: none;
         color: white;
-        transition: .4s ease-in-out;
+        transition: .2s ease-in-out;
 
         &:hover {
           color: $primaryDark;

@@ -25,18 +25,26 @@ export default function Hamburger(props) {
     }
   }
 
+  const buttonAnimation = {
+    initial: { x: "100%" },
+    clicked: { x: 0, transition: { duration: 0.1 } }
+  };
+
+
+
   return <>
     <div className="hamburger">
       <MenuToggle isOpen={isOpen} toggle={() => { setOpen(!isOpen); changeLogo() }} />
-      {isOpen && <motion.div animate={{ right: 0 }} transition={{ duration: .2 }} className="hamburger-container" >
+      <motion.div variants={buttonAnimation} initial={{ x: "100%" }} animate={isOpen ? "clicked" : "initial"} className="hamburger-container" >
         <ul>
           <li><Link onClick={() => setOpen(false)} to="/">Home</Link></li>
           <li><Link onClick={() => { setOpen(false); scrollToSection("work", 80); }} to="/#work">Work</Link></li>
           <li><Link onClick={() => { setOpen(false); scrollToSection("about"); }} to="/#about">About</Link></li>
           <li><Link onClick={() => { setOpen(false); scrollToSection("contact-section"); }} to="/#contact-section">Contact</Link></li>
         </ul>
-      </motion.div>}
+      </motion.div>
     </div>
 
   </>
 }
+

@@ -1,6 +1,6 @@
 import ResponsiveImage from "../components/ResonsiveImage";
 import SmallProjectCard from "./SmallProjectCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
@@ -21,6 +21,8 @@ const WorkSection = (data) => {
     projectDescription: data.projectsData[0].acf.project_description,
   });
 
+  const [featuredProjects, setFeaturedProjects] = useState([])
+
   function updateImage(imageSizes, title, work, description) {
 
     //set all zindex back to 0
@@ -30,6 +32,7 @@ const WorkSection = (data) => {
     }
 
     setShownImage({
+      imageSizesObject: imageSizes,
       imageTitle: title,
       workDone: work,
       projectDescription: description,
@@ -39,6 +42,12 @@ const WorkSection = (data) => {
     document.getElementById(title).style.opacity = "1";
   }
 
+  //sort featured projects
+  useEffect(() => {
+    const featured = data.projectsData.filter(project => project.acf.featured);
+    setFeaturedProjects(featured);
+  }, [data.projectsData]);
+
 
   return (
     <>
@@ -46,7 +55,7 @@ const WorkSection = (data) => {
         <motion.h2 ref={ref} initial={{ x: -100, opacity: 0 }} animate={isInView ? { x: 0, opacity: 1, transition: { duration: 2 } } : ""}>featured <span>Projects</span></motion.h2>
         <div className="section-content">
           <div className="small-projects-container">
-            {data.projectsData.map((project, i) => {
+            {featuredProjects.map((project, i) => {
               if (project.acf.featured) {
                 return (
                   <SmallProjectCard
@@ -66,7 +75,7 @@ const WorkSection = (data) => {
           <motion.div ref={imgRef} initial={{ x: 100, opacity: 0 }} animate={imgInView ? { x: 0, opacity: 1, transition: { duration: 1.5 } } : ""} className="project-image-container">
             <div className="all-images-container">
               {
-                data.projectsData.map((project, i) => {
+                featuredProjects.map((project, i) => {
                   return (
                     <ResponsiveImage key={i} id={project.acf.project_title} imgArray={shownImage.imageSizesObject} />
                   )

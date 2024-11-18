@@ -47,7 +47,6 @@ const WorkSection = (data) => {
         <div className="section-content">
           <div className="small-projects-container">
             {data.projectsData.map((project, i) => {
-              console.log(project.acf.featured, project.acf.project_title)
               if (project.acf.featured) {
                 return (
                   <SmallProjectCard
@@ -69,7 +68,7 @@ const WorkSection = (data) => {
               {
                 data.projectsData.map((project, i) => {
                   return (
-                    <ResponsiveImage key={i} id={project.acf.project_title} imgArray={project.acf.project_first_image} />
+                    <ResponsiveImage key={i} id={project.acf.project_title} imgArray={shownImage.imageSizesObject} />
                   )
                 })
               }

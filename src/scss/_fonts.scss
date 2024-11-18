@@ -18,6 +18,8 @@
 
 @font-face {
   font-family: MigraBold;
-  src: url(../fonts/MIGRA-EXTRABOLD.OTF);
+  src: url('../fonts/Migra-Extrabold.woff2') format('woff2'),
+    url('../fonts/Migra-Extrabold.woff') format('woff'),
+    url('../fonts/MIGRA-EXTRABOLD.OTF') format('opentype');
   font-display: swap;
 }

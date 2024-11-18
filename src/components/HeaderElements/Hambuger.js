@@ -33,7 +33,7 @@ export default function Hamburger(props) {
           <li><Link onClick={() => setOpen(false)} to="/">Home</Link></li>
           <li><Link onClick={() => { setOpen(false); scrollToSection("work", 80); }} to="/#work">Work</Link></li>
           <li><Link onClick={() => { setOpen(false); scrollToSection("about"); }} to="/#about">About</Link></li>
-          <li><Link onClick={() => { setOpen(false); scrollToSection("contact"); }} to="/#contact">Contact</Link></li>
+          <li><Link onClick={() => { setOpen(false); scrollToSection("contact-section"); }} to="/#contact-section">Contact</Link></li>
         </ul>
       </motion.div>}
     </div>

@@ -71,6 +71,7 @@ const PageProject = () => {
                 <motion.div initial={{ x: -400, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ type: 'spring', duration: 1 }} className="project-landing">
                   <h1 onMouseEnter={changeCursor("heading")} onMouseLeave={changeCursor("default")} id={`${thisProjectData.acf.project_title}`}>{thisProjectData.acf.project_title}</h1>
                   <p id="sub-heading">{thisProjectData.acf.project_description}</p>
+                  {console.log(thisProjectData)}
                   {/* <img src={thisProjectData.acf.project_first_image.sizes.large} alt={`${thisProjectData.acf.project_title}-landingpage`} /> */}
                   <ResponsiveImage imgArray={thisProjectData.acf.project_first_image} />
                 </motion.div>

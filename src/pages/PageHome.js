@@ -7,6 +7,7 @@ import WhoSection from "../components/whoSection";
 import ContactSection from "../components/contactSection";
 
 
+
 import { OtherGlobe, UpsidedownHand, AnimeStar, MotionRings } from "../svgs/LandingIcons.js";
 
 import Cursor from "../components/CustomCursor";
@@ -106,7 +107,10 @@ const PageHome = () => {
               <div className="gabriel">
                 <MotionRings />
                 <h1 id="gabriel">
+
                   <AnimeStar position={"right"} />
+
+
                   gabriel
                 </h1>
                 <h1 className="sr-only">gabriel kelly</h1>

@@ -34,7 +34,9 @@ function Highlights2(highlights) {
 
 
   function markUpData(highlights) {
+
     (dataLoaded) ?
+
       highlightData.highlights.map((highlight, i) => {
 
         switch (highlight.acf_fc_layout) {
